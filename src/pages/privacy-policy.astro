@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { siteConfig } from '../data/nav';
+
+const title = 'Privacy Policy | Huzaifa Local SEO';
+const description = 'How Huzaifa Local SEO collects, uses and protects information submitted through our website and business communication channels.';
+---
+<BaseLayout title={title} description={description} path="/privacy-policy/">
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Privacy Policy'}]}
+    title="Privacy Policy"
+    subtitle="Effective date: October 2026"
+  />
+  <section class="section">
+    <div class="container prose" style="max-width:800px;">
+      <p>At Huzaifa Local SEO, we respect your privacy and want you to understand how information may be collected, used, and protected when you visit our website or contact us about our services. This Privacy Policy explains the general way we handle information provided through our website.</p>
+
+      <h2>Information We May Collect</h2>
+      <p>Depending on how you use our website, we may collect information such as:</p>
+      <ul>
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Business name</li>
+        <li>Website URL</li>
+        <li>Location or service area</li>
+        <li>Information you provide through a contact form</li>
+        <li>Information included in your message or service request</li>
+        <li>Basic technical information about your visit</li>
+      </ul>
+      <p>We only ask for information that is reasonably needed for communication, service inquiries, website operation, or related business purposes.</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>Information may be used to respond to your questions, discuss requested SEO or digital services, provide information about our services, understand your business requirements, communicate about an ongoing project, improve our website and services, maintain website security, and meet applicable legal or business requirements.</p>
+      <p>We do not use your information for purposes that are unrelated to the reason it was collected unless permitted or required by applicable law.</p>
+
+      <h2>Contact Forms</h2>
+      <p>If you contact Huzaifa Local SEO through a form, email, or another communication method, we may use the information you provide to respond to your request. Please avoid sending sensitive personal information through general contact forms unless it is specifically requested and necessary.</p>
+
+      <h2>Cookies and Website Analytics</h2>
+      <p>Our website may use cookies or similar technologies to improve website functionality, understand website usage, or support analytics. If third-party analytics or other services are used on the website, those services may process information according to their own privacy policies. You can also control certain cookie settings through your browser.</p>
+
+      <h2>Third-Party Services</h2>
+      <p>Our website may contain links to third-party websites or services, including useful resources related to SEO, Google Search, Google Business Profile, or other online services. When you leave our website, the third party's own privacy policy and terms may apply. Huzaifa Local SEO does not control the privacy practices of websites that we do not operate.</p>
+
+      <h2>How We Protect Information</h2>
+      <p>We take reasonable steps to protect information submitted through our website and business communication channels. However, no website or online communication method can be guaranteed to be completely secure.</p>
+
+      <h2>How Long We Keep Information</h2>
+      <p>We may retain information for as long as reasonably necessary to respond to inquiries, provide services, maintain business records, resolve issues, or meet legal and business requirements. The appropriate retention period may depend on the type and purpose of the information.</p>
+
+      <h2>Your Choices</h2>
+      <p>Depending on applicable law, you may have rights regarding personal information you have provided to us. If you want to ask about information we may hold about you, request a correction, or ask about its use, you can contact us using the details below.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Our website and services are intended for general business and informational use. We do not knowingly request personal information from children through our website.</p>
+
+      <h2>Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy when our website, services, or information practices change. Any updated version will be posted on this page with a revised effective date.</p>
+
+      <h2>Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how information is handled, contact us:</p>
+      <p>Brand: Huzaifa Local SEO<br />Email: {siteConfig.email}<br />Website: {siteConfig.url}</p>
+      <p>You can also review our <a href="/terms-and-conditions/" style="color:var(--blue-400);">Terms &amp; Conditions</a> to understand the general terms for using our website and services.</p>
+    </div>
+  </section>
+</BaseLayout>

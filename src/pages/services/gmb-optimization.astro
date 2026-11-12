@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaGrid from '../../components/AreaGrid.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import FaqList from '../../components/FaqList.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'GMB Optimization Services in Pakistan | Huzaifa Local SEO';
+const description = 'Rank higher on Google Maps with Google Business Profile (GMB) optimization in Pakistan. Categories, reviews, photos and map pack tracking.';
+const pageUrl = 'https://huzaifalocalseo.com/services/gmb-optimization/';
+
+const included = [
+  { h: 'Profile Setup & Verification', b: 'Making sure your business is properly claimed, verified, and fully filled out.' },
+  { h: 'Category & Service Optimization', b: 'Choosing the right primary and secondary categories so Google understands exactly what you offer.' },
+  { h: 'NAP Consistency', b: 'Keeping your Name, Address, and Phone number identical everywhere online, which builds trust with Google.' },
+  { h: 'Photo & Video Optimization', b: 'Adding high-quality images that improve engagement and click-through rate.' },
+  { h: 'Google Posts', b: 'Regular updates and offers posted directly to your profile to keep it active.' },
+  { h: 'Review Management', b: 'Helping you generate genuine reviews and respond to them professionally.' },
+  { h: 'GMB Q&A Optimization', b: 'Adding common customer questions and answers to improve visibility.' },
+  { h: 'Local Map Pack Tracking', b: 'Monitoring your ranking in the top 3 map pack results for your target keywords.' },
+];
+
+const steps = [
+  { h: 'Profile Audit', b: 'We review your current listing for missing information, errors, or ranking issues.' },
+  { h: 'Optimization Setup', b: 'We update categories, description, service areas, and business details for maximum relevance.' },
+  { h: 'Content & Photo Updates', b: 'We add optimized photos, posts, and offers regularly.' },
+  { h: 'Review Strategy', b: 'We help you build a steady stream of authentic customer reviews.' },
+  { h: 'Monthly Monitoring', b: 'We track your map pack rankings and adjust the strategy as needed.' },
+];
+
+const areas = ['Karachi: Clifton, DHA, Gulshan-e-Iqbal', 'Lahore: Gulberg, DHA, Model Town, Johar Town', 'Islamabad: F-6, F-7, F-8, Blue Area, G-9', 'Rawalpindi: Saddar, Bahria Town, Satellite Town', 'Faisalabad: D Ground, Jinnah Colony, Madina Town', 'Multan: Cantt, Gulgasht Colony, Bosan Road', 'Peshawar: University Town, Hayatabad, Saddar'];
+
+const why = [
+  'Focused on the map pack: we specifically target the top 3 local results, where most clicks happen.',
+  'Genuine review growth: no fake reviews, only sustainable strategies that build real trust.',
+  'Consistent local signals: we keep your NAP data accurate across every platform Google checks.',
+  'Hands-on management: your profile is actively maintained, not set up once and forgotten.',
+];
+
+const faqs = [
+  { q: 'What is Google Business Profile optimization?', a: 'It’s the process of fully setting up and continuously improving your Google Business listing so it ranks higher in local search and Google Maps results.' },
+  { q: 'How do I rank in the Google Maps 3-pack?', a: 'Ranking in the 3-pack depends on relevance, distance, and prominence: which means accurate categories, consistent NAP data, strong reviews, and an active, complete profile.' },
+  { q: 'Why is my business not showing up on Google Maps?', a: 'This is usually due to an incomplete profile, incorrect categories, inconsistent business information across the web, or a lack of reviews compared to competitors.' },
+  { q: 'Do I need a physical address to rank on Google Maps?', a: 'For most local service businesses, yes: Google prioritizes verified physical locations or accurate service-area settings. We help set this up correctly either way.' },
+  { q: 'How long does GMB optimization take to show results?', a: 'Many businesses see noticeable improvement in map pack visibility within 4–8 weeks, though this depends on competition and your profile’s starting condition.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Google Business Profile Optimization', provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: 'PK', url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={title} description={description} path="/services/gmb-optimization/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'GMB Optimization'}]}
+    eyebrow="GMB Optimization"
+    title="Google Business Profile Optimization Services in Pakistan"
+    subtitle="Most local customers don't scroll past the first few results on Google Maps. If your business isn't there, you're losing them to competitors who are. GMB optimization gets your business seen by people searching for your services right now, in your city."
+    ctaPrimary={{label: 'Get a Free GMB Audit', href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container intro-split">
+      <div class="prose">
+        <h2>What is GMB Optimization?</h2>
+        <p>GMB optimization means fully setting up and refining your Google Business Profile so it ranks higher in local search results and the Google Maps 3-pack. This includes accurate business information, the right categories, photos, posts, and consistent reviews: all signals Google uses to decide which businesses to show first.</p>
+        <p>For local service businesses, this is often more valuable than traditional SEO alone. Complete, verified, and regularly updated profiles are more likely to appear in local search and Maps results, which directly means more calls, visits, and bookings for you.</p>
+      </div>
+      <div class="img-placeholder img-placeholder-filled" aria-hidden="true">
+        <img src="/images/google-business-profile-optimization.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid exclude="/services/gmb-optimization/" />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>What's Included in Our GMB Optimization Service</h2></div>
+      <div class="grid grid-2">
+        {included.map((i) => (
+          <div class="card"><h3>{i.h}</h3><p>{i.b}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Our GMB Optimization Process</h2></div>
+      <ul class="step-list">
+        {steps.map((s) => (<li><span class="num"></span><div><h4>{s.h}</h4><p>{s.b}</p></div></li>))}
+      </ul>
+    </div>
+  </section>
+
+  <AreaGrid areas={areas} title="Areas We Serve" intro="No matter your location, we build a local SEO strategy around your service area, and businesses across all of Pakistan." />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="why-split">
+        <div class="why-heading"><h2>Why Choose Us for GMB Optimization</h2></div>
+        <ul class="list-check">
+          {why.map((w) => (<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {w}</li>))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><FaqList title="FAQs" items={faqs} /><p class="map-citation">Profile optimization recommendations here are based on official <a href="https://support.google.com/business/answer/7091" target="_blank" rel="noopener noreferrer">Google Business Profile Help</a> guidance.</p></div></section>
+
+  <CtaBand title="Ready to Show Up on Google Maps?" body="Get a free audit and find out exactly why you're not ranking in local search yet." ctaLabel="Get a Free GMB Audit" />
+</BaseLayout>

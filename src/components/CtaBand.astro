@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  ctaLabel: string;
+  ctaHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+const { title, body, ctaLabel, ctaHref = '/contact/', secondaryLabel, secondaryHref } = Astro.props;
+---
+<section class="section section-tight section-cta">
+  <div class="container">
+    <div class="cta-band">
+      <h2>{title}</h2>
+      <p>{body}</p>
+      <div class="btn-row">
+        <a href={ctaHref} class="btn btn-primary">{ctaLabel}</a>
+        {secondaryLabel && <a href={secondaryHref} class="btn btn-outline">{secondaryLabel}</a>}
+      </div>
+    </div>
+  </div>
+</section>

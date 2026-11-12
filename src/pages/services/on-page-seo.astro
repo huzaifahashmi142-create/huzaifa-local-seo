@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaGrid from '../../components/AreaGrid.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import FaqList from '../../components/FaqList.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'On-Page SEO Services in Pakistan | Huzaifa Local SEO';
+const description = 'On-page SEO services in Pakistan: keyword mapping, title and meta optimization, header structure, internal linking, schema and Core Web Vitals fixes.';
+const pageUrl = 'https://huzaifalocalseo.com/services/on-page-seo/';
+
+const included = [
+  { h: 'Keyword Research & Mapping', b: 'Finding the exact terms your customers are searching and assigning them to the right pages.' },
+  { h: 'Title Tag & Meta Description Optimization', b: 'Writing click-worthy titles and descriptions that improve your rankings and your click-through rate.' },
+  { h: 'Header Tag (H1–H3) Structuring', b: 'Organizing your content so both users and Google can scan it easily.' },
+  { h: 'Content Optimization', b: 'Making sure your page content actually answers what people are searching for.' },
+  { h: 'Internal Linking', b: 'Connecting related pages so visitors and search engines can navigate your site logically.' },
+  { h: 'Image Alt Text & Compression', b: 'Making images accessible and fast-loading without hurting quality.' },
+  { h: 'URL Structure Optimization', b: 'Clean, keyword-relevant URLs that are easy to read and share.' },
+  { h: 'Schema Markup Implementation', b: 'Adding structured data so Google can display rich results for your pages.' },
+  { h: 'Site Speed & Core Web Vitals', b: 'Improving load times, since Google has confirmed page experience affects rankings.' },
+  { h: 'Mobile Optimization Check', b: 'Making sure your site performs well on the devices most Pakistani users actually browse on.' },
+];
+
+const steps = [
+  { h: 'Website & Keyword Audit', b: 'We review your current site and research the keywords your customers are actually typing into Google.' },
+  { h: 'Competitor Analysis', b: 'We look at what’s working for businesses already ranking above you, and find the gaps you can win on.' },
+  { h: 'On-Page Optimization', b: 'We apply the fixes across your content and technical structure: no guesswork, no shortcuts.' },
+  { h: 'Implementation', b: 'Changes go live on your website with careful testing to make sure nothing breaks.' },
+  { h: 'Reporting & Monthly Tracking', b: 'You get clear, honest updates on what’s improved and what we’re working on next.' },
+];
+
+const areas = ['Karachi: Clifton, DHA, Gulshan-e-Iqbal, North Nazimabad', 'Lahore: Gulberg, DHA, Model Town, Johar Town', 'Islamabad: F-6, F-7, F-8, Blue Area, G-9', 'Rawalpindi: Saddar, Bahria Town, Satellite Town', 'Faisalabad: D Ground, Jinnah Colony, Madina Town', 'Multan: Cantt, Gulgasht Colony, Bosan Road', 'Peshawar: University Town, Hayatabad, Saddar'];
+
+const why = [
+  'Data-driven, not guesswork: every recommendation is backed by real keyword and competitor data.',
+  'White-hat techniques only: we follow Google’s guidelines, so your rankings are built to last.',
+  'Transparent monthly reporting: you’ll always know exactly what’s been done and why.',
+  'Direct communication with the person doing the work: no account managers relaying messages.',
+];
+
+const faqs = [
+  { q: 'What is on-page SEO and why do I need it?', a: 'On-page SEO covers all the changes made directly on your website: content, structure, and technical elements: that help Google understand and rank your pages. Without it, even a well-designed website can struggle to show up in search results.' },
+  { q: 'How long does on-page SEO take to show results?', a: 'Most businesses start noticing ranking improvements within 6–12 weeks, though this depends on your site’s current condition, competition, and industry.' },
+  { q: 'Is on-page SEO a one-time service or ongoing?', a: 'It’s best treated as ongoing. Search algorithms change, competitors adjust their strategies, and new content needs optimization: so regular check-ins keep your rankings stable and growing.' },
+  { q: 'Do you optimize for local Pakistani search terms too?', a: 'Yes. We research how your actual local audience searches: including city and neighbourhood-specific terms: so your pages match real search behaviour, not just generic keywords.' },
+  { q: 'What’s the difference between on-page and off-page SEO?', a: 'On-page SEO focuses on your website itself (content, structure, speed). Off-page SEO focuses on signals outside your website, like backlinks and online authority. Both work together for strong rankings.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'On-Page SEO', provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: 'PK', url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={title} description={description} path="/services/on-page-seo/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'On-Page SEO'}]}
+    eyebrow="On-Page SEO"
+    title="On-Page SEO Services in Pakistan for Higher Google Rankings"
+    subtitle="If your website isn't showing up when people search for what you offer, chances are your pages aren't sending the right signals to Google. We fix the technical and content-level issues holding your site back, from title tags to page speed, so you start ranking for the keywords that bring in customers."
+    ctaPrimary={{label: 'Get a Free SEO Audit', href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container intro-split">
+      <div class="prose">
+        <h2>What is On-Page SEO?</h2>
+        <p>On-page SEO is the process of optimizing individual web pages: their content, HTML structure, and technical elements: so search engines like Google can understand what the page is about and rank it accordingly. It covers everything from your title tags and headings to internal links and page speed.</p>
+        <p>For businesses in Pakistan, this matters more than ever. As more customers search on Google before choosing a service, having a well-optimized website is often the difference between showing up on page one or getting lost behind competitors. Well-structured, relevant content remains one of the strongest ranking factors, which is exactly what on-page SEO is built to deliver.</p>
+      </div>
+      <div class="img-placeholder img-placeholder-filled" aria-hidden="true">
+        <img src="/images/what-is-on-page-seo.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid exclude="/services/on-page-seo/" />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>What's Included in Our On-Page SEO Service</h2></div>
+      <div class="grid grid-2">
+        {included.map((i) => (
+          <div class="card">
+            <h3>{i.h}</h3>
+            <p>{i.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Our On-Page SEO Process</h2></div>
+      <ul class="step-list">
+        {steps.map((s) => (
+          <li><span class="num"></span><div><h4>{s.h}</h4><p>{s.b}</p></div></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <AreaGrid areas={areas} title="Areas We Serve" intro="No matter which city or neighbourhood your business operates in, our team builds an on-page SEO strategy tailored to your local market, and businesses across all of Pakistan." />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="why-split">
+        <div class="why-heading">
+          <h2>Why Choose Us for On-Page SEO</h2>
+        </div>
+        <ul class="list-check">
+          {why.map((w) => (
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {w}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <FaqList title="FAQs" items={faqs} />
+      <p class="map-citation">On-page SEO practices on this page follow <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener noreferrer">Google's own SEO Starter Guide</a>.</p>
+    </div>
+  </section>
+
+  <CtaBand title="Ready to Rank Higher on Google?" body="Get a free, no-obligation audit and see exactly what's holding your website back." ctaLabel="Get a Free SEO Audit" />
+</BaseLayout>

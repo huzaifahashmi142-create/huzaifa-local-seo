@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from './PageHero.astro';
+import AreaGrid from './AreaGrid.astro';
+import FaqList from './FaqList.astro';
+import CtaBand from './CtaBand.astro';
+import PlatformMarquee from './PlatformMarquee.astro';
+import { getServiceIcon } from '../data/serviceIcons';
+import { services as serviceLinks, locations } from '../data/nav';
+
+const { city } = Astro.props;
+const serviceHrefByTitle: Record<string, string> = Object.fromEntries(serviceLinks.map((s) => [s.title, s.href]));
+const pageUrl = `https://huzaifalocalseo.com/locations/${city.slug}/`;
+const otherLocations = locations.filter((l) => l.href !== `/locations/${city.slug}/`);
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: `Local SEO Services in ${city.name}`, provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: city.name, url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: city.faqs.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://huzaifalocalseo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://huzaifalocalseo.com/locations/' },
+    { '@type': 'ListItem', position: 3, name: city.name, item: pageUrl },
+  ]},
+];
+---
+<BaseLayout title={city.metaTitle} description={city.metaDescription} path={`/locations/${city.slug}/`} schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Locations', href:'/locations/'}, {label: city.name}]}
+    eyebrow={`Local SEO in ${city.name}`}
+    title={city.h1}
+    subtitle={city.heroIntro}
+    ctaPrimary={{label: `Get Your ${city.name} Local SEO Audit`, href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container">
+      <div class="prose answer-box" style="max-width:860px; margin:0 auto;">
+        <h2>{city.growHeading}</h2>
+        {city.growParagraphs.map((p: string) => <p set:html={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>Local SEO Services We Provide in {city.name}</h2></div>
+      <div class="grid grid-3 services-grid">
+        {city.services.map((s: any) => {
+          const href = serviceHrefByTitle[s.title] || '/services/';
+          return (
+            <a href={href} class="card">
+              <div class="icon gfx-icon" set:html={`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${getServiceIcon(href)}</svg>`} />
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <span class="card-link">Learn more →</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-benefits-section">
+    <div class="container">
+      <div class="why-benefits-head">
+        <h2>{city.whyHeading}</h2>
+        {city.whyIntro && <p>{city.whyIntro}</p>}
+      </div>
+      <div class="why-benefits-grid">
+        {city.whyItems.map((w: string, i: number) => {
+          const dashIndex = w.indexOf(':');
+          const lead = dashIndex > -1 ? w.slice(0, dashIndex + 1) : '';
+          const rest = dashIndex > -1 ? w.slice(dashIndex + 1) : w;
+          return (
+            <div class="why-benefit-item">
+              <span class="why-benefit-num">{String(i + 1).padStart(2, '0')}</span>
+              <p set:html={`<strong>${lead}</strong>${rest}`} />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>{city.improveHeading}</h2></div>
+      <div class="grid grid-2">
+        {city.improveSections.map((s: any) => (
+          <div class="card"><h3>{s.title}</h3><p>{s.body}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <AreaGrid
+    title={`${city.name} Areas We Can Target`}
+    intro={city.areasIntro}
+    areas={city.areas}
+  />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>Find {city.name} on the Map</h2><p>Here's where {city.name} sits in Pakistan, and the kind of map pack visibility your business can earn with a fully optimized Google Business Profile.</p></div>
+      <div class="map-embed">
+        <iframe
+          src={`https://www.google.com/maps?q=${encodeURIComponent(city.name + ', Pakistan')}&output=embed`}
+          width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title={`Map of ${city.name}, Pakistan`}
+        ></iframe>
+      </div>
+      <p class="map-citation">Learn more about how Maps ranking works directly from <a href="https://support.google.com/business/answer/7091" target="_blank" rel="noopener noreferrer">Google Business Profile Help</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-tight related-locations-section">
+    <div class="container">
+      <div class="section-head"><h2>Explore Our Local SEO Coverage in Other Cities</h2></div>
+      <div class="area-tag-grid">
+        {otherLocations.map((l) => (
+          <a href={l.href} class="area-tag">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {l.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {city.zipCodes && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>Postal / Zip Codes We Serve in {city.name}</h2><p>We work with businesses across all these {city.name} postal code areas: if your area isn't listed, reach out and we'll confirm coverage.</p></div>
+        <div class="grid grid-4" style="gap:14px;">
+          {city.zipCodes.map((z: any) => (
+            <div id={`zip-${z.code}`} class="card zip-card">
+              <div class="zip-card-top">
+                <span class="zip-code">{z.code}</span>
+                <span class="zip-card-pin">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                </span>
+              </div>
+              <h3>{z.area}</h3>
+              <p>Local SEO and Google Business Profile optimization for businesses based in {z.area}, {city.name} ({z.code}).</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {city.businessTypes && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>{city.businessTypesHeading}</h2>{city.businessTypesIntro && <p>{city.businessTypesIntro}</p>}</div>
+        <div class="grid grid-3">
+          {city.businessTypes.map((b: any) => (
+            <div class="card"><h3>{b.title}</h3><p>{b.body}</p></div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="timeline-tracking-grid">
+        <div class="timeline-tracking-box">
+          <h2>{city.timelineHeading}</h2>
+          {city.timelineParagraphs.map((p: string) => <p>{p}</p>)}
+        </div>
+        <div class="timeline-tracking-box">
+          <h2>{city.trackingHeading}</h2>
+          <ul class="list-check">
+            {city.trackingItems.map((t: string) => (
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {t}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><FaqList title={`FAQs About Local SEO in ${city.name}`} items={city.faqs} /></div></section>
+
+  <CtaBand
+    title={`Get Your ${city.name} Local SEO Audit`}
+    body={city.finalCtaBody}
+    ctaLabel={`Get Your ${city.name} Local SEO Audit`}
+  />
+</BaseLayout>

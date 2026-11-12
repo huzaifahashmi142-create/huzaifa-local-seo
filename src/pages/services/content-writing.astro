@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaGrid from '../../components/AreaGrid.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import FaqList from '../../components/FaqList.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'SEO Content Writing Services in Pakistan | Huzaifa Local SEO';
+const description = 'Expert SEO content writing services in Pakistan. Well-researched, keyword-optimized content that ranks on Google and speaks to real customers.';
+const pageUrl = 'https://huzaifalocalseo.com/services/content-writing/';
+
+const included = [
+  { h: 'Keyword-Focused Blog Posts', b: 'Articles built around real search terms your customers are using.' },
+  { h: 'Website Page Copy', b: 'Clear, persuasive copy for homepages, service pages, and landing pages.' },
+  { h: 'SEO-Optimized Structure', b: 'Proper headings, readable paragraphs, and internal linking built into every piece.' },
+  { h: 'Industry Research', b: 'Content grounded in accurate, relevant information for your specific industry.' },
+  { h: 'Content Refreshing', b: 'Updating old, underperforming pages with better, more current content.' },
+  { h: 'Meta Titles & Descriptions', b: 'Written to improve both rankings and click-through rates.' },
+];
+
+const steps = [
+  { h: 'Keyword & Topic Research', b: 'We find out exactly what your target customers are searching for.' },
+  { h: 'Content Planning', b: 'We outline each piece around search intent and your business goals.' },
+  { h: 'Writing & Optimization', b: 'We write clear, natural content structured for both readers and search engines.' },
+  { h: 'Review & Revisions', b: 'You review the draft, and we refine it based on your feedback.' },
+  { h: 'Publishing Support', b: 'We can help upload and format the content directly on your website.' },
+];
+
+const areas = ['Karachi: Clifton, DHA, Gulshan-e-Iqbal', 'Lahore: Gulberg, DHA, Model Town, Johar Town', 'Islamabad: F-6, F-7, F-8, Blue Area, G-9', 'Rawalpindi: Saddar, Bahria Town, Satellite Town', 'Faisalabad: D Ground, Jinnah Colony, Madina Town', 'Multan: Cantt, Gulgasht Colony, Bosan Road', 'Peshawar: University Town, Hayatabad, Saddar'];
+
+const why = [
+  'Written for humans first: every piece is written to genuinely help the reader, not just target a keyword.',
+  'Backed by real research: no generic filler content; every article is grounded in real industry knowledge.',
+  'SEO built in, not bolted on: structure, headings, and keywords are integrated naturally.',
+  'Consistent tone and quality: your brand voice stays consistent across every page and post.',
+];
+
+const faqs = [
+  { q: 'What is SEO content writing?', a: 'It’s the process of writing website content, blogs, service pages, and articles, that’s researched around real search terms and structured to help both readers and search engines.' },
+  { q: 'Do you write content in Urdu or English?', a: 'We primarily write in English, since that’s what most search traffic in Pakistan’s business sectors is built around, but we can discuss Roman Urdu content depending on your audience.' },
+  { q: 'How many keywords should be in an article?', a: 'There’s no fixed number. Good content uses keywords naturally within the flow of the writing, focused on answering the reader’s question rather than hitting a specific count.' },
+  { q: 'Can content writing alone help me rank on Google?', a: 'Content is a major factor, but it works best combined with on-page SEO and backlinks. Strong content gives search engines and readers a reason to trust and rank your site.' },
+  { q: 'Do you provide blog writing services too?', a: 'Yes, we write ongoing blog content designed to target new keywords, answer customer questions, and keep your website active in Google’s eyes.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'SEO Content Writing', provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: 'PK', url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={title} description={description} path="/services/content-writing/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'Content Writing'}]}
+    eyebrow="Content Writing"
+    title="SEO Content Writing Services in Pakistan That Rank on Google"
+    subtitle="A website full of thin or generic content struggles to rank, no matter how good the design is. Our SEO content writing services are built around what your customers are actually searching for, so every page and blog post has a real purpose: to rank, to inform, and to convert."
+    ctaPrimary={{label: 'Get a Free Content Audit', href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container intro-split">
+      <div class="prose">
+        <h2>What is SEO Content Writing?</h2>
+        <p>SEO content writing means creating website copy, blog posts, and articles that are researched around real search terms, structured properly for readability, and written in a way that keeps both readers and search engines satisfied. It’s not about stuffing keywords, it’s about answering the questions your customers are already typing into Google.</p>
+        <p>Content should be created primarily for people, not just to rank, which is the exact approach we take with every piece we write.</p>
+      </div>
+      <div class="img-placeholder img-placeholder-filled" aria-hidden="true">
+        <img src="/images/what-is-seo-content-writing.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid exclude="/services/content-writing/" />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>What's Included in Our Content Writing Service</h2></div>
+      <div class="grid grid-3">{included.map((i) => (<div class="card"><h3>{i.h}</h3><p>{i.b}</p></div>))}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Our Content Writing Process</h2></div>
+      <ul class="step-list">{steps.map((s) => (<li><span class="num"></span><div><h4>{s.h}</h4><p>{s.b}</p></div></li>))}</ul>
+    </div>
+  </section>
+
+  <AreaGrid areas={areas} title="Areas We Serve" intro="No matter where your business is based, we write content around your local audience and industry, and businesses across all of Pakistan." />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="why-split">
+        <div class="why-heading"><h2>Why Choose Us for Content Writing</h2></div>
+        <ul class="list-check">{why.map((w) => (<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {w}</li>))}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><FaqList title="FAQs" items={faqs} /><p class="map-citation">Our content approach follows <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener noreferrer">Google's helpful content guidelines</a>.</p></div></section>
+
+  <CtaBand title="Ready for Content That Actually Ranks?" body="Get a free content audit and see what's missing from your current website copy." ctaLabel="Get a Free Content Audit" />
+</BaseLayout>

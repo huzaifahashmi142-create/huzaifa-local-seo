@@ -1,0 +1,437 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import FaqList from '../components/FaqList.astro';
+import { siteConfig, locations } from '../data/nav';
+import { getServiceIcon } from '../data/serviceIcons';
+import PlatformMarquee from '../components/PlatformMarquee.astro';
+
+const title = 'Huzaifa Local SEO | Local SEO & Google Business Profile Services in Pakistan';
+const description = 'Huzaifa Local SEO helps businesses across Pakistan rank on Google and Google Maps with local SEO, GMB optimization, website design and content writing.';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/favicon.svg`,
+    areaServed: 'PK',
+    sameAs: [],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+];
+
+const services = [
+  { title: 'On-Page SEO', href: '/services/on-page-seo/', body: 'Titles, headings, content, internal links and page speed fixed so Google understands and ranks your pages.' },
+  { title: 'Off-Page SEO', href: '/services/off-page-seo/', body: 'Listings, citations and relevant link building that build trust and authority beyond your own website.' },
+  { title: 'GMB Optimization', href: '/services/gmb-optimization/', body: 'A fully optimized Google Business Profile so you show up in the Maps results people actually click.' },
+  { title: 'Website Design', href: '/services/website-design/', body: 'Fast, mobile-friendly websites built with SEO foundations in place from day one.' },
+  { title: 'Website Maintenance', href: '/services/website-maintenance/', body: 'Updates, backups, security checks and fixes so your site keeps performing after launch.' },
+  { title: 'Content Writing', href: '/services/content-writing/', body: 'Clear, useful content built around real search intent, not keyword stuffing.' },
+];
+
+const steps = [
+  { title: 'Audit', body: 'We review your Google Business Profile, website and current rankings to see exactly where you stand.' },
+  { title: 'Research', body: 'We find the keywords your customers use and study the competitors already ranking above you.' },
+  { title: 'Optimize', body: 'We fix and improve your profile, your website and your content, with no guesswork.' },
+  { title: 'Track & Report', body: 'You get clear, honest reporting on what changed, what we worked on and what comes next.' },
+];
+
+const trustPoints = [
+  { title: 'No Fake Promises', body: 'We never guarantee a #1 ranking. We tell you what we are doing, why, and what results typically look like over time.' },
+  { title: 'Built Around Search Intent', body: 'Every page, title and piece of content is written for what a real customer types into Google, not for keyword density.' },
+  { title: 'Clear Monthly Reporting', body: 'You see exactly what changed on your profile, your website and your rankings: in plain language, every month.' },
+  { title: 'One Team, Every Piece', body: 'On-page SEO, off-page SEO, GMB, content and your website are handled together, so nothing falls through the gaps.' },
+];
+
+const faqs = [
+  { q: 'What does Huzaifa Local SEO actually do?', a: 'We help businesses in Pakistan improve how they appear on Google Search and Google Maps, through on-page and off-page SEO, Google Business Profile optimization, content writing, website design and website maintenance.' },
+  { q: 'Do you only work with businesses in Karachi?', a: 'No. While we have detailed local SEO coverage for Karachi, Lahore, Islamabad, Faisalabad, Multan, Peshawar, Quetta and Sialkot, we work with businesses across Pakistan.' },
+  { q: 'Can you guarantee a #1 ranking on Google?', a: 'No honest SEO provider can guarantee a specific ranking. Search results depend on many factors outside anyone’s direct control. We focus on applying sound SEO practices and improving your visibility over time.' },
+  { q: 'How do I get started?', a: 'Request a free audit through our contact page. Tell us about your business, your services and the areas you serve, and we’ll review your current Google Business Profile and website before recommending next steps.' },
+];
+---
+<BaseLayout title={title} description={description} path="/" schema={schema}>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17l6-6 4 4 8-8M21 7h-6v6"/></svg>
+            Local SEO & Digital Growth Partner
+          </span>
+          <h1>Turn Google searches into <span class="accent">real local customers</span></h1>
+          <p class="hero-sub">We help businesses across Pakistan show up on Google Search and Google Maps, with local SEO, Google Business Profile optimization, content and website services built around real search intent, not guesswork.</p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="dot">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v2l-18 5v-2zM3 11l18 7v2l-18-7"/><circle cx="12" cy="12" r="10"/></svg>
+              </span>
+              Local SEO &amp; Google Business Profile optimization built for Pakistani search behaviour
+            </div>
+            <div class="hero-stat">
+              <span class="dot">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+              </span>
+              Transparent, monthly reporting, no vague claims or guaranteed rankings
+            </div>
+            <div class="hero-stat">
+              <span class="dot">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              On-page, off-page, content, design and maintenance under one roof
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <a href="/contact/" class="btn btn-white">
+              Get a Free SEO Audit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"/></svg>
+            </a>
+            <a href="https://wa.me/923198652203" target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.8.8-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual hero-photo" aria-hidden="true">
+          <div class="hero-gfx-frame">
+            <svg class="hero-map-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="hub-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="55%" stop-color="#3b82f6"/>
+                  <stop offset="100%" stop-color="#6366f1"/>
+                </linearGradient>
+                <linearGradient id="spoke-grad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.25"/>
+                </linearGradient>
+                <pattern id="hero-grid" width="26" height="26" patternUnits="userSpaceOnUse">
+                  <circle cx="1.2" cy="1.2" r="1.2" fill="#3b82f6" fill-opacity="0.16"/>
+                </pattern>
+                <filter id="node-glow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <rect x="0" y="0" width="400" height="500" fill="url(#hero-grid)"/>
+              <circle cx="200" cy="255" r="150" fill="url(#hub-glow)"/>
+              <circle class="hero-orbit-ring" cx="200" cy="255" r="178" fill="none" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1.5"/>
+
+              {(() => {
+                const cities = [
+                  { name: 'Karachi', x: 200, y: 85 },
+                  { name: 'Lahore', x: 300, y: 140 },
+                  { name: 'Islamabad', x: 330, y: 255 },
+                  { name: 'Faisalabad', x: 300, y: 370 },
+                  { name: 'Multan', x: 200, y: 425 },
+                  { name: 'Peshawar', x: 100, y: 370 },
+                  { name: 'Quetta', x: 70, y: 255 },
+                  { name: 'Sialkot', x: 100, y: 140 },
+                ];
+                const ring = cities.map((c, i) => [c, cities[(i + 1) % cities.length]]);
+                return (
+                  <>
+                    {ring.map(([a, b]) => (
+                      <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="#38bdf8" stroke-width="1.75" stroke-opacity="0.45" stroke-linecap="round" />
+                    ))}
+                    <line x1={cities[0].x} y1={cities[0].y} x2={cities[4].x} y2={cities[4].y} stroke="#38bdf8" stroke-width="1.75" stroke-opacity="0.45" stroke-linecap="round" />
+                    {cities.map((c) => (
+                      <line x1="200" y1="255" x2={c.x} y2={c.y} stroke="url(#spoke-grad)" stroke-width="2" stroke-linecap="round" />
+                    ))}
+                    {cities.map((c, i) => (
+                      <circle r="2.6" fill="#a5f3fc" class="hero-pulse-dot" style={`offset-path: path('M200,255 L${c.x},${c.y}'); animation-delay: ${i * 0.35}s;`} />
+                    ))}
+                    {cities.map((c) => {
+                      const labelBelow = c.x === 330 || c.x === 70;
+                      const labelAbove = c.y === 85;
+                      const labelBottom = c.y === 425;
+                      const side = !labelBelow && !labelAbove && !labelBottom;
+                      const x = side ? c.x + (c.x > 200 ? 18 : -18) : c.x;
+                      const y = labelAbove ? c.y - 20 : labelBottom ? c.y + 26 : labelBelow ? c.y + 28 : c.y + 4;
+                      const anchor = side ? (c.x > 200 ? 'start' : 'end') : 'middle';
+                      return (
+                        <g filter="url(#node-glow)">
+                          <circle cx={c.x} cy={c.y} r="13" fill="#0a0f1c" stroke="#3b82f6" stroke-width="1.5" />
+                          <circle cx={c.x} cy={c.y} r="4" fill="#60a5fa" />
+                        </g>
+                        <text x={x} y={y} text-anchor={anchor} font-size="13" font-weight="600" fill="#cbd5e1" font-family="inherit">{c.name}</text>
+                      );
+                    })}
+                  </>
+                );
+              })()}
+
+              <circle class="hero-hub-ring" cx="200" cy="255" r="46" fill="#0a0f1c" stroke="url(#hub-grad)" stroke-width="2.5" filter="url(#node-glow)"/>
+              <text x="200" y="263" text-anchor="middle" font-size="24" font-weight="800" letter-spacing="2" fill="url(#hub-grad)" font-family="inherit">HLS</text>
+            </svg>
+          </div>
+          <div class="floating-card">
+            <div class="big">8 Cities</div>
+            <div class="small">Local SEO coverage across Pakistan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <PlatformMarquee />
+
+  <section class="section section-services">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">What We Do</span>
+        <h2>SEO and digital services that work together</h2>
+        <p>We don&rsquo;t believe every business needs the exact same plan. We look at your business, your audience and your current website before deciding what actually needs attention.</p>
+      </div>
+      <div class="grid grid-3 services-grid">
+        {services.map((s) => (
+          <a href={s.href} class="card">
+            <div class="icon gfx-icon" set:html={`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${getServiceIcon(s.href)}</svg>`} />
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+            <span class="card-link">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight why-matters">
+    <div class="container">
+      <div class="why-matters-grid">
+        <div class="why-matters-main">
+          <span class="eyebrow">Why It Matters</span>
+          <h2>Most customers decide before they ever visit your website</h2>
+          <p>Someone searching for your service on Google usually sees a map with three businesses, and a list of websites below it. The businesses in those spots get most of the calls, direction requests and visits. Everyone else gets very few.</p>
+          <p>Local SEO is the work that earns your business a place there: your Google Business Profile, your website, and your presence across the rest of the web, all working together.</p>
+          <a href="/about-us/" class="btn btn-primary">More About Our Approach</a>
+        </div>
+        <div class="why-matters-panel">
+          <span class="why-matters-panel-label">What makes the difference</span>
+          <ol class="why-matters-list">
+            <li>
+              <span class="why-matters-num">01</span>
+              <div>
+                <strong>Map pack visibility.</strong>
+                <p>Most clicks happen on the top three Google Maps results for a search.</p>
+              </div>
+            </li>
+            <li>
+              <span class="why-matters-num">02</span>
+              <div>
+                <strong>Search-ready websites.</strong>
+                <p>Clear service pages built around what customers actually type into Google.</p>
+              </div>
+            </li>
+            <li>
+              <span class="why-matters-num">03</span>
+              <div>
+                <strong>Genuine reviews and trust signals.</strong>
+                <p>No fake reviews: just sustainable strategies that build real trust.</p>
+              </div>
+            </li>
+            <li>
+              <span class="why-matters-num">04</span>
+              <div>
+                <strong>Work that keeps paying off.</strong>
+                <p>Unlike paid ads, local SEO keeps bringing visibility after the work is done.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .why-matters { background: #0a0f1c; }
+    .section-faq-block { background: #0d1424; }
+    .why-matters-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      align-items: center;
+      gap: 56px;
+    }
+    .why-matters-main h2 {
+      font-size: clamp(1.9rem, 2.6vw, 2.5rem);
+      line-height: 1.18;
+      color: #f3f6fc;
+      margin: 10px 0 20px;
+      max-width: 22ch;
+    }
+    .why-matters-main p {
+      color: #aab4c8;
+      line-height: 1.78;
+      max-width: 52ch;
+      margin-bottom: 18px;
+    }
+    .why-matters-main .btn {
+      margin-top: 8px;
+    }
+    .why-matters-panel {
+      background: #F7FAFF;
+      border: 1px solid #E2E9F4;
+      border-radius: 18px;
+      padding: 34px 32px;
+    }
+    .why-matters-panel-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #347CF6;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .why-matters-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .why-matters-list li {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid #E2E9F4;
+    }
+    .why-matters-list li:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+    .why-matters-list li:last-child {
+      padding-bottom: 0;
+    }
+    .why-matters-num {
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #26C5E9;
+      line-height: 1.5;
+    }
+    .why-matters-list strong {
+      display: block;
+      color: #071735;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .why-matters-list p {
+      color: #354663;
+      font-size: 0.93rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .why-matters-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .why-matters-main h2 { max-width: none; }
+      .why-matters-main p { max-width: none; }
+      .why-matters-panel { padding: 28px 24px; }
+    }
+  </style>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">How We Work</span>
+        <h2>A clear process, from audit to results</h2>
+      </div>
+      <ul class="step-list grid grid-2" style="gap:28px 40px;">
+        {steps.map((s) => (
+          <li>
+            <span class="num"></span>
+            <div>
+              <h4>{s.title}</h4>
+              <p>{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-tight section-where-work">
+    <div class="where-work-gfx" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Where We Work</span>
+        <h2>Local SEO coverage across Pakistan</h2>
+        <p>We provide dedicated local SEO strategies for major cities, and work with businesses anywhere in Pakistan.</p>
+      </div>
+      <div class="area-tag-grid">
+        {locations.map((l) => (
+          <a href={l.href} class="area-tag">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {l.title}
+          </a>
+        ))}
+      </div>
+      <div style="text-align:center; margin-top:24px;">
+        <a href="/locations/" class="btn btn-outline">View All Locations</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Why Businesses Work With Us</span>
+        <h2>SEO you can actually verify</h2>
+        <p>We&rsquo;d rather be honest about how local SEO works than make promises we can&rsquo;t keep.</p>
+      </div>
+      <div class="grid grid-4">
+        {trustPoints.map((t) => (
+          <div class="card">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-faq-block">
+    <div class="container">
+      <div class="grid grid-2" style="gap:48px;">
+        <FaqList title="Common Questions" items={faqs} />
+        <div>
+          <span class="eyebrow">Who We Help</span>
+          <h2>Built for real Pakistani businesses</h2>
+          <p>Huzaifa Local SEO works with businesses that want to improve their local or online visibility, including home improvement, furniture, construction, web agencies, local service businesses and other location-based businesses.</p>
+          <p>We avoid making unrealistic promises such as guaranteed Google rankings. Search results can change for many reasons, and SEO is best treated as an ongoing process, not a one-time fix.</p>
+          <a href="/contact/" class="btn btn-primary">Talk to Us About Your Business</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Ready to Show Up Where Your Customers Are Searching?"
+    body="Get a free, no-obligation audit of your Google Business Profile and website, and see exactly what's holding your visibility back."
+    ctaLabel="Get a Free SEO Audit"
+    secondaryLabel="View Our Services"
+    secondaryHref="/services/"
+  />
+</BaseLayout>

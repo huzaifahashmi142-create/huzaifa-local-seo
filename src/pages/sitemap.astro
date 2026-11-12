@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PlatformMarquee from '../components/PlatformMarquee.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services, locations } from '../data/nav';
+
+const title = 'Sitemap | Huzaifa Local SEO';
+const description = 'A complete, easy-to-browse list of every page on the Huzaifa Local SEO website: services, locations, portfolio and more.';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://huzaifalocalseo.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Sitemap', item: 'https://huzaifalocalseo.com/sitemap/' },
+    ],
+  },
+];
+
+const groups = [
+  {
+    title: 'Main Pages',
+    icon: 'M3 12l9-9 9 9M5 10v10h14V10',
+    links: [
+      { label: 'Home', href: '/' },
+      { label: 'About Us', href: '/about-us/' },
+      { label: 'Portfolio', href: '/portfolio/' },
+      { label: 'FAQ', href: '/faq/' },
+      { label: 'Contact', href: '/contact/' },
+    ],
+  },
+  {
+    title: 'Services',
+    icon: 'M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-2.6 2.6-2-2z',
+    links: [
+      { label: 'All Services', href: '/services/' },
+      ...services.map((s) => ({ label: s.title, href: s.href })),
+    ],
+  },
+  {
+    title: 'Locations',
+    icon: 'M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z',
+    links: [
+      { label: 'All Locations', href: '/locations/' },
+      ...locations.map((l) => ({ label: l.title, href: l.href })),
+      { label: 'Zip Codes', href: '/zip-codes/' },
+    ],
+  },
+  {
+    title: 'Legal',
+    icon: 'M9 12l2 2 4-4M7.8 4.2A9 9 0 1 0 12 21a9 9 0 0 0 7.2-14.4',
+    links: [
+      { label: 'Privacy Policy', href: '/privacy-policy/' },
+      { label: 'Terms & Conditions', href: '/terms-and-conditions/' },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} path="/sitemap/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Sitemap'}]}
+    eyebrow="Sitemap"
+    title="Every page on this website, in one place"
+    subtitle="A quick, organized overview of our services, locations and other pages, so you can find exactly what you're looking for."
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container">
+      <div class="sitemap-grid">
+        {groups.map((g) => (
+          <div class="sitemap-group">
+            <div class="sitemap-group-head">
+              <span class="sitemap-group-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d={g.icon}/></svg>
+              </span>
+              <h2>{g.title}</h2>
+            </div>
+            <ul class="sitemap-link-list">
+              {g.links.map((l) => (
+                <li>
+                  <a href={l.href}>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .sitemap-group {
+      background: linear-gradient(160deg, var(--navy-800), var(--navy-850));
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 28px 30px;
+    }
+    .sitemap-group-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .sitemap-group-head h2 { margin: 0; font-size: 1.1rem; }
+    .sitemap-group-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--gradient-soft);
+      color: var(--blue-400);
+    }
+    .sitemap-link-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .sitemap-link-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 4px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      transition: color 0.15s ease, background 0.15s ease, padding-left 0.15s ease;
+    }
+    .sitemap-link-list a svg { flex-shrink: 0; color: var(--blue-400); opacity: 0.7; }
+    .sitemap-link-list a:hover { color: var(--text-primary); background: var(--navy-700); padding-left: 10px; }
+    @media (max-width: 760px) {
+      .sitemap-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <CtaBand
+    title="Can't Find What You're Looking For?"
+    body="Get in touch and we'll point you to the right page, or answer your question directly."
+    ctaLabel="Contact Us"
+  />
+</BaseLayout>

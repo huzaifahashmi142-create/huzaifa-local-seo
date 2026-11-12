@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getServiceIcon } from '../../data/serviceIcons';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'SEO & Digital Marketing Services in Pakistan | Huzaifa Local SEO';
+const description = 'On-Page SEO, Off-Page SEO, GMB Optimization, Website Design, Website Maintenance and Content Writing services for businesses across Pakistan.';
+
+const items = [
+  { title: 'On-Page SEO', href: '/services/on-page-seo/', body: 'We optimize every page of your website so Google understands it, ranks it higher, and sends you more customers: titles, headings, content, internal links, schema and page speed.' },
+  { title: 'Off-Page SEO', href: '/services/off-page-seo/', body: 'We build your business’s reputation beyond your own website through business listings, citations, guest posting and relevant link building.' },
+  { title: 'GMB Optimization', href: '/services/gmb-optimization/', body: 'We optimize your Google Business Profile so your business shows up on Google Maps, in the local map pack, and in front of customers ready to buy.' },
+  { title: 'Website Design', href: '/services/website-design/', body: 'We design fast, mobile-friendly websites that don’t just look good: they’re built from the ground up to rank on Google and convert visitors.' },
+  { title: 'Website Maintenance', href: '/services/website-maintenance/', body: 'We keep your website secure, updated and running smoothly, so you never have to worry about downtime, hacks or slow performance.' },
+  { title: 'Content Writing', href: '/services/content-writing/', body: 'We write content that’s built for both search engines and real people: clear, useful and optimized to bring in the right customers.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://huzaifalocalseo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://huzaifalocalseo.com/services/' },
+  ],
+};
+---
+<BaseLayout title={title} description={description} path="/services/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services'}]}
+    eyebrow="Our Services"
+    title="SEO and digital services built around real business needs"
+    subtitle="We work on the areas that make the biggest difference to a business website and local presence. Every service is designed to work together, not in isolation."
+    ctaPrimary={{label: 'Get a Free Audit', href: '/contact/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3 services-grid">
+        {items.map((s) => (
+          <a href={s.href} class="card">
+            <div class="icon gfx-icon" set:html={`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${getServiceIcon(s.href)}</svg>`} />
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+            <span class="card-link">View service details →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Not Sure Which Service You Need?"
+    body="Share a bit about your business and current website, and we'll point you to the services that will actually move the needle."
+    ctaLabel="Get a Free Audit"
+    secondaryLabel="See Our Locations"
+    secondaryHref="/locations/"
+  />
+</BaseLayout>

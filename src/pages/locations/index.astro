@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'Local SEO Services Across Pakistan | Huzaifa Local SEO';
+const description = 'Local SEO and Google Business Profile optimization for businesses in Karachi, Lahore, Islamabad, Faisalabad, Multan, Peshawar, Quetta and Sialkot.';
+
+const cities = [
+  { name: 'Karachi', href: '/locations/karachi/', body: 'DHA, Clifton, Gulshan-e-Iqbal, Gulistan-e-Johar, PECHS, North Nazimabad, Saddar and more.' },
+  { name: 'Lahore', href: '/locations/lahore/', body: 'Gulberg, DHA Lahore, Johar Town, Model Town, Wapda Town, Bahria Town, Cantt.' },
+  { name: 'Islamabad', href: '/locations/islamabad/', body: 'F-6, F-7, F-8, G-6, G-8, I-8, E-11, DHA Islamabad, Bahria Town.' },
+  { name: 'Faisalabad', href: '/locations/faisalabad/', body: 'D-Ground, Madina Town, Gulberg, Susan Road, Peoples Colony, Canal Road.' },
+  { name: 'Multan', href: '/locations/multan/', body: 'Gulgasht Colony, Multan Cantt, Bosan Road, Shah Rukn-e-Alam, Mumtazabad.' },
+  { name: 'Peshawar', href: '/locations/peshawar/', body: 'Hayatabad, University Town, Saddar, Gulberg, Cantt, Board Bazaar.' },
+  { name: 'Quetta', href: '/locations/quetta/', body: 'Jinnah Road, Satellite Town, Jinnah Town, Samungli Road, Sariab Road.' },
+  { name: 'Sialkot', href: '/locations/sialkot/', body: 'Sialkot Cantt, Defence Road, Model Town, Paris Road, Daska Road.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://huzaifalocalseo.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://huzaifalocalseo.com/locations/' },
+  ],
+};
+---
+<BaseLayout title={title} description={description} path="/locations/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Locations'}]}
+    eyebrow="Where We Work"
+    title="Local SEO services across Pakistan"
+    subtitle="We provide dedicated local SEO strategies for major Pakistani cities, built around how customers actually search in each one, not a copied page with a different city name. We also work with businesses anywhere else in Pakistan."
+    ctaPrimary={{label: 'Get a Free Local SEO Audit', href: '/contact/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {cities.map((c) => (
+          <a href={c.href} class="card">
+            <h3>Local SEO in {c.name}</h3>
+            <p>{c.body}</p>
+            <span class="card-link">View {c.name} page →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Don't See Your City Listed?"
+    body="We work with businesses across all of Pakistan, not only the cities above. Tell us where you're based and what you offer, and we'll build a plan around your actual market."
+    ctaLabel="Get in Touch"
+  />
+</BaseLayout>

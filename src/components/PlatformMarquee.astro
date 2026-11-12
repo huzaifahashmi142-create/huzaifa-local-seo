@@ -1,0 +1,15 @@
+---
+import { platformLogos } from '../data/platformLogos';
+---
+<div class="marquee-wrap" aria-label="Platforms and tools we work with">
+  <div class="marquee-track">
+    {[...platformLogos, ...platformLogos].map((p) => (
+      <span class="marquee-logo">
+        <span class="marquee-logo-icon">
+          <img src={p.slug === 'ahrefs' ? '/icons/ahrefs.png' : `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${p.slug}.svg`} alt="" loading="lazy" />
+        </span>
+        <span style={p.style === 'italic' ? 'font-style:italic;' : ''}>{p.name}</span>
+      </span>
+    ))}
+  </div>
+</div>

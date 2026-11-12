@@ -1,0 +1,32 @@
+---
+import { services } from '../data/nav';
+import { getServiceIcon } from '../data/serviceIcons';
+interface Props { exclude?: string; title?: string }
+const { exclude, title = 'Our Other Services' } = Astro.props;
+const list = exclude ? services.filter((s) => s.href !== exclude) : services;
+const blurbs: Record<string, string> = {
+  '/services/on-page-seo/': 'We optimize every page of your website so Google ranks it higher.',
+  '/services/off-page-seo/': 'Build authority and trust with high-quality backlinks that rank you higher.',
+  '/services/gmb-optimization/': 'Get found on Google Maps and show up in the local map pack.',
+  '/services/website-design/': 'Fast, conversion-focused websites built to turn visitors into customers.',
+  '/services/website-maintenance/': 'Keep your website secure, updated and running at peak performance.',
+  '/services/content-writing/': 'SEO-optimized content that ranks on Google and speaks to your customers.',
+};
+---
+<section class="section section-tight">
+  <div class="container">
+    <div class="section-head">
+      <h2>{title}</h2>
+    </div>
+    <div class="grid grid-3 services-grid">
+      {list.map((s) => (
+        <a href={s.href} class="card">
+          <div class="icon gfx-icon" set:html={`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${getServiceIcon(s.href)}</svg>`} />
+          <h3>{s.title}</h3>
+          <p>{blurbs[s.href]}</p>
+          <span class="card-link">Learn more →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

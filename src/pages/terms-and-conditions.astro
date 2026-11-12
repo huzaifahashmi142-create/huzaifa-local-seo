@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { siteConfig } from '../data/nav';
+
+const title = 'Terms & Conditions | Huzaifa Local SEO';
+const description = 'The general terms that apply when you use the Huzaifa Local SEO website or request our SEO, Google Business Profile, content, design and maintenance services.';
+---
+<BaseLayout title={title} description={description} path="/terms-and-conditions/">
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Terms & Conditions'}]}
+    title="Terms & Conditions"
+    subtitle="Effective date: October 2026"
+  />
+  <section class="section">
+    <div class="container prose" style="max-width:800px;">
+      <p>Welcome to Huzaifa Local SEO. These Terms &amp; Conditions explain the general terms that apply when you use our website or request our services. By using this website or engaging with our services, you agree to these terms.</p>
+
+      <h2>Our Services</h2>
+      <p>Huzaifa Local SEO provides digital and SEO-related services, which may include On-Page SEO, Off-Page SEO, GMB Optimization, Content Writing, Website Design, Website Maintenance, Local SEO services, and related digital services agreed with a client. The exact services, deliverables, timelines, and fees may vary depending on the project.</p>
+
+      <h2>SEO Results</h2>
+      <p>SEO depends on many factors that are outside the direct control of any SEO service provider. Search engine algorithms, competition, website history, technical issues, industry changes, and other factors can affect performance. For this reason, Huzaifa Local SEO does not promise guaranteed rankings, specific traffic levels, or a guaranteed position in Google Search. Our work is focused on applying appropriate SEO practices and improving the website's search visibility and overall online presence.</p>
+
+      <h2>Client Responsibilities</h2>
+      <p>Clients are responsible for providing accurate information, access, materials, approvals, and other items reasonably required to complete an agreed project. Clients should also make sure that information provided to us does not knowingly violate another person's rights or applicable laws. Delays in receiving required information or approvals may affect project timelines.</p>
+
+      <h2>Website Content and Information</h2>
+      <p>Where a client provides business information, images, text, logos, or other materials, the client is responsible for having the appropriate rights or permission to use those materials. We may use client-provided information only for the agreed project and related business purposes.</p>
+
+      <h2>Payments and Project Terms</h2>
+      <p>Pricing, payment schedules, revisions, deliverables, and project timelines should be agreed before work begins. If a separate proposal, quotation, agreement, or invoice contains specific terms for a project, those agreed project terms may apply to that project.</p>
+
+      <h2>Website Design and Maintenance</h2>
+      <p>Website design and maintenance services may depend on the website platform, hosting provider, plugins, themes, third-party tools, and access provided by the client. We cannot guarantee that every third-party system will remain available, compatible, or unchanged. Website backups, hosting, domain registration, and third-party subscriptions should be clearly agreed as part of the project where applicable.</p>
+
+      <h2>Third-Party Platforms</h2>
+      <p>SEO and digital marketing work may involve third-party platforms such as Google Search, Google Business Profile, website hosting services, analytics platforms, social networks, or other tools. These platforms operate independently and may change their features, policies, algorithms, or requirements. Huzaifa Local SEO does not control changes made by third-party platforms.</p>
+
+      <h2>Intellectual Property</h2>
+      <p>Unless otherwise agreed in writing, each party retains ownership of materials and intellectual property that they owned before a project began. Ownership or usage rights for newly created content, website designs, graphics, or other deliverables should follow the terms agreed for the specific project.</p>
+
+      <h2>Acceptable Use</h2>
+      <p>You agree not to use our website or services for unlawful activity, fraud, abuse, or activity that could harm our website, systems, staff, clients, or other users. We may refuse or discontinue work where a request conflicts with applicable law, platform rules, or our service policies.</p>
+
+      <h2>Website Information</h2>
+      <p>We aim to keep the information on our website useful and accurate. However, information may change over time. Website content should not be treated as a guarantee of a particular SEO result or business outcome.</p>
+
+      <h2>External Links</h2>
+      <p>Our website may link to external websites for additional information or useful resources. External websites are controlled by their respective owners, and we are not responsible for their content, availability, privacy practices, or policies.</p>
+
+      <h2>Limitation of Liability</h2>
+      <p>To the extent permitted by applicable law, Huzaifa Local SEO is not responsible for losses resulting from factors outside our reasonable control, including search engine algorithm changes, third-party platform changes, hosting problems, website outages, or inaccurate information supplied by a client. Nothing in these terms is intended to exclude or limit any rights or protections that cannot legally be excluded or limited.</p>
+
+      <h2>Changes to These Terms</h2>
+      <p>We may update these Terms &amp; Conditions when our services, website, or business practices change. The latest version will be published on this page with an updated effective date.</p>
+
+      <h2>Contact Us</h2>
+      <p>For questions about these Terms &amp; Conditions, contact:</p>
+      <p>Brand: Huzaifa Local SEO<br />Email: {siteConfig.email}<br />Website: {siteConfig.url}</p>
+      <p>You can also read our <a href="/privacy-policy/" style="color:var(--blue-400);">Privacy Policy</a> to understand how information may be handled when you use our website.</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import PlatformMarquee from '../components/PlatformMarquee.astro';
+
+const title = 'Frequently Asked Questions | Huzaifa Local SEO';
+const description = 'Answers to common questions about local SEO, Google Business Profile optimization, pricing, timelines, website design and maintenance in Pakistan.';
+
+const categories = [
+  {
+    name: 'General SEO',
+    items: [
+      { q: 'What is SEO and why does my business need it?', a: 'SEO (search engine optimization) is the work of improving your website and online presence so more of the right people find you on Google. For most businesses it is one of the most practical ways to get consistent enquiries without paying for every single click.' },
+      { q: 'Can you guarantee a #1 Google ranking?', a: 'No. Search engine algorithms, competition, website history and many other factors are outside any SEO provider’s direct control, so we don’t promise guaranteed rankings, specific traffic levels or a guaranteed position. We focus on applying sound SEO practices and improving your visibility over time.' },
+      { q: 'Is SEO a one-time project or an ongoing service?', a: 'It’s best treated as ongoing. Search algorithms change, competitors adjust their strategies, and content needs regular attention, so most businesses see the strongest results from continued work rather than a single setup.' },
+      { q: 'How long does SEO take to work?', a: 'Most businesses see early movement, such as improved impressions or profile views, within 4–8 weeks. Stronger, more stable rankings for competitive terms usually take 3–6 months, depending on your industry, competition and the starting condition of your website.' },
+      { q: 'What is the difference between SEO and Google Ads?', a: 'SEO builds visibility that keeps working after the work is done, while Google Ads shows your business at the top of results only while you keep paying. Most businesses benefit from SEO as the long-term foundation, with ads used for faster, short-term visibility.' },
+    ],
+  },
+  {
+    name: 'Local SEO',
+    items: [
+      { q: 'What is local SEO?', a: 'Local SEO is the work that helps your business show up when nearby customers search on Google Search and Google Maps. It covers your Google Business Profile, your website, and your presence on other websites.' },
+      { q: 'Do you provide local SEO outside the cities listed on your site?', a: 'Yes. We have dedicated local SEO pages for Karachi, Lahore, Islamabad, Faisalabad, Multan, Peshawar, Quetta and Sialkot, but we work with businesses anywhere in Pakistan.' },
+      { q: 'How is local SEO different from regular SEO?', a: 'Local SEO adds a location layer on top of standard SEO: your Google Business Profile, local citations, reviews and location-specific content, all aimed at customers searching near you.' },
+      { q: 'What factors affect local SEO rankings?', a: 'Google weighs three main factors: relevance (how well your profile matches the search), distance (how close you are to the searcher) and prominence (your reviews, citations and overall online reputation). Strong local SEO improves all three together.' },
+      { q: 'Do I need a website for local SEO to work?', a: 'Not strictly, since a complete Google Business Profile alone can appear in Maps results. But a website gives you far more ranking opportunities, more space to explain your services, and a place to send customers who want more detail before contacting you.' },
+    ],
+  },
+  {
+    name: 'Google Maps & GBP',
+    items: [
+      { q: 'Why is my business not showing up on Google Maps?', a: 'This is usually caused by an incomplete or unverified profile, the wrong category, an incorrect map pin, inconsistent business details across the web, or very few reviews compared to competitors.' },
+      { q: 'Do I need a physical address to rank on Google Maps?', a: 'For most local service businesses, yes, Google prioritizes verified physical locations or accurate service-area settings. We can help set this up correctly either way.' },
+      { q: 'How long does GMB optimization take to show results?', a: 'Many businesses see noticeable improvement in map pack visibility within 4–8 weeks, though this depends on competition and your profile’s starting condition.' },
+      { q: 'How do I verify my Google Business Profile?', a: 'Google usually verifies a profile by phone, email, video, or a postcard mailed to your business address, depending on your business type and location. We handle the setup and guide you through whichever method Google offers you.' },
+      { q: 'Can I have more than one Google Business Profile for one business?', a: 'No, creating duplicate profiles for a single business location goes against Google’s guidelines and can get your listings suspended. If you have multiple branches, each genuine location can have its own verified profile.' },
+      { q: 'What is the Google Maps 3-pack?', a: 'The 3-pack is the group of three businesses Google shows at the top of local search results, above the regular website listings. It gets the large majority of clicks, calls and direction requests for local searches, which is why ranking there matters so much.' },
+    ],
+  },
+  {
+    name: 'Pricing & Timelines',
+    items: [
+      { q: 'How much does local SEO cost?', a: 'It depends on your industry, competition, the number of areas you want to target, and the current condition of your profile and website. We provide a custom quote after reviewing your business, with everything included listed clearly upfront.' },
+      { q: 'How long does it take to see results?', a: 'Most businesses notice early improvements, such as more profile views or calls, within one to three months. Stronger, more stable rankings usually take three to six months, depending on competition and your starting point.' },
+      { q: 'Do you require long-term contracts?', a: 'No. We work month to month, so you’re never locked into a long commitment. We’d rather keep your business through the results we deliver than through a contract.' },
+      { q: 'What’s included in your monthly SEO package?', a: 'A typical monthly package covers Google Business Profile management, on-page and technical fixes, content updates, citation and link building, and a clear monthly report. The exact mix is adjusted to what your business actually needs after the audit.' },
+    ],
+  },
+  {
+    name: 'Website Design & Maintenance',
+    items: [
+      { q: 'Do you build SEO-friendly websites?', a: 'Yes, every website we build includes proper on-page SEO fundamentals: clean structure, fast loading speed and mobile optimization, from the start.' },
+      { q: 'Do you offer ongoing website maintenance plans?', a: 'Yes, we offer monthly maintenance plans covering updates, backups, security monitoring, speed checks and small content changes.' },
+      { q: 'Can you work with my existing website instead of rebuilding it?', a: 'Yes. We review what you already have and fix technical and on-page issues first. If the site has serious problems, we’ll explain them and let you decide whether a redesign is worth it.' },
+      { q: 'How much does a business website cost in Pakistan?', a: 'Cost depends on the number of pages, design complexity and features you need, such as booking forms or an online store. We quote after understanding your goals, so you’re only paying for what your business actually needs.' },
+    ],
+  },
+  {
+    name: 'Content Writing',
+    items: [
+      { q: 'Do you write content in Urdu or English?', a: 'We primarily write in English, since that’s what most search traffic in Pakistan’s business sectors is built around, but we can discuss Roman Urdu content depending on your audience.' },
+      { q: 'Can content writing alone help me rank on Google?', a: 'Content is a major factor, but it works best combined with on-page SEO and backlinks. Strong content gives search engines and readers a reason to trust and rank your site.' },
+      { q: 'How often should I publish new content on my website?', a: 'Consistency matters more than volume. One well-researched page or post a month that actually answers a real customer question outperforms several thin, rushed pages published just to hit a schedule.' },
+    ],
+  },
+  {
+    name: 'Reviews & Reputation',
+    items: [
+      { q: 'How do I get more Google reviews for my business?', a: 'Ask satisfied customers directly, right after a positive interaction, using a simple link you can text, WhatsApp or hand over in person. A short, consistent process works far better than occasional, random requests.' },
+      { q: 'Should I respond to negative reviews?', a: 'Yes, always. A calm, professional reply shows future customers how you handle problems, and it often matters more to them than the negative review itself.' },
+      { q: 'Can I pay for fake Google reviews to rank faster?', a: 'No. Fake reviews violate Google’s policies and can get your entire Business Profile suspended, undoing months of real work. Genuine reviews, collected consistently, are the only safe long-term approach.' },
+    ],
+  },
+];
+
+const allFaqs = categories.flatMap((c) => c.items);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<BaseLayout title={title} description={description} path="/faq/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'FAQ'}]}
+    eyebrow="FAQ Hub"
+    title="Frequently asked questions"
+    subtitle="Answers to the questions we hear most often about local SEO, Google Business Profile optimization, pricing, timelines and our other services."
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      {categories.map((cat) => (
+        <div style="margin-bottom:40px;">
+          <FaqList title={cat.name} items={cat.items} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand
+    title="Still Have a Question?"
+    body="Tell us about your business and we'll give you a straight answer, not a generic one."
+    ctaLabel="Contact Us"
+  />
+</BaseLayout>

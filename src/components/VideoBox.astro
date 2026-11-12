@@ -1,0 +1,64 @@
+---
+interface Props {
+  videoUrl?: string;
+  title: string;
+}
+const { videoUrl, title } = Astro.props;
+const isFile = !!videoUrl && /\.(mp4|webm|mov)$/i.test(videoUrl);
+---
+<div class="case-video">
+  {videoUrl ? (
+    isFile ? (
+      <video
+        data-src={videoUrl}
+        class="lazy-video"
+        loop
+        muted
+        playsinline
+        preload="none"
+        aria-label={title}
+      ></video>
+    ) : (
+      <iframe
+        src={videoUrl}
+        title={`${title} — video`}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    )
+  ) : (
+    <div class="case-video-placeholder" aria-hidden="true">
+      <span class="case-video-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span>Video Placeholder</span>
+    </div>
+  )}
+</div>
+
+<script>
+  const win = window as any;
+  if (!win.__lazyVideoObserver) {
+    win.__lazyVideoObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            if (!video.src && video.dataset.src) {
+              video.src = video.dataset.src;
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        }
+      },
+      { rootMargin: '150px 0px', threshold: 0.15 }
+    );
+  }
+  document.querySelectorAll('video.lazy-video:not([data-observed])').forEach((v) => {
+    v.setAttribute('data-observed', 'true');
+    win.__lazyVideoObserver.observe(v);
+  });
+</script>

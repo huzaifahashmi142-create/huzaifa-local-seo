@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaGrid from '../../components/AreaGrid.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import FaqList from '../../components/FaqList.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'Website Design Services in Pakistan | Huzaifa Local SEO';
+const description = 'SEO-friendly, mobile-first website design services in Pakistan. Fast, conversion-focused websites built to rank and turn visitors into customers.';
+const pageUrl = 'https://huzaifalocalseo.com/services/website-design/';
+
+const included = [
+  { h: 'Custom Website Design', b: 'A layout and design built around your brand, not a generic template.' },
+  { h: 'Mobile-First Development', b: 'Websites that work smoothly on phones, since most Pakistani users browse on mobile.' },
+  { h: 'SEO-Friendly Structure', b: 'Clean code, proper headings, and site architecture built for search engines from the start.' },
+  { h: 'Fast Loading Speed', b: 'Optimized images and code so your site doesn’t lose visitors to slow load times.' },
+  { h: 'Conversion-Focused Layout', b: 'Clear calls-to-action placed where visitors are most likely to act.' },
+  { h: 'Content Management Setup', b: 'An easy-to-use backend so you can update your site without needing a developer.' },
+];
+
+const steps = [
+  { h: 'Discovery Call', b: 'We learn about your business, goals, and what your website needs to achieve.' },
+  { h: 'Wireframing & Planning', b: 'We map out the site structure before any design work begins.' },
+  { h: 'Design & Development', b: 'We build the site with both aesthetics and SEO fundamentals in mind.' },
+  { h: 'Testing & Review', b: 'We test across devices and browsers, and you review before launch.' },
+  { h: 'Launch & Handover', b: 'Your site goes live, and we walk you through how to manage it.' },
+];
+
+const areas = ['Karachi: Clifton, DHA, Gulshan-e-Iqbal', 'Lahore: Gulberg, DHA, Model Town, Johar Town', 'Islamabad: F-6, F-7, F-8, Blue Area, G-9', 'Rawalpindi: Saddar, Bahria Town, Satellite Town', 'Faisalabad: D Ground, Jinnah Colony, Madina Town', 'Multan: Cantt, Gulgasht Colony, Bosan Road', 'Peshawar: University Town, Hayatabad, Saddar'];
+
+const why = [
+  'Design and SEO built together: your site isn’t handed off to SEO later; it’s built ready from day one.',
+  'Mobile-first approach: since most local searches happen on phones, your site is designed for that experience first.',
+  'No bloated templates: every site is built lean and fast, not stuffed with unnecessary plugins.',
+  'Direct access to your developer: you work with the person actually building your site.',
+];
+
+const faqs = [
+  { q: 'How much does a website cost in Pakistan?', a: 'Costs vary depending on the size and features of the website. We provide a custom quote after understanding your specific business needs: contact us for a free consultation.' },
+  { q: 'Do you build SEO-friendly websites?', a: 'Yes, every website we build includes proper on-page SEO fundamentals: clean structure, fast loading speed, and mobile optimization: from the very start.' },
+  { q: 'Will my website work on mobile phones?', a: 'Absolutely. We design mobile-first, since most visitors to Pakistani business websites browse from their phones rather than desktops.' },
+  { q: 'How long does it take to design a website?', a: 'Timelines depend on the size of the project, but most business websites are completed within 2–4 weeks from the discovery call to launch.' },
+  { q: 'Do you provide website hosting too?', a: 'Yes, we can guide you through hosting setup or manage it for you, along with domain and technical configuration.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Website Design', provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: 'PK', url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={title} description={description} path="/services/website-design/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'Website Design'}]}
+    eyebrow="Website Design"
+    title="Website Design Services in Pakistan Built to Convert"
+    subtitle="A website that looks nice but loads slowly, isn't mobile-friendly, or wasn't built with SEO in mind will struggle to bring in business. Our website design services focus on both sides of the equation: a site that represents your brand well, and one that's structurally built to perform on Google from day one."
+    ctaPrimary={{label: 'Get a Free Website Consultation', href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container intro-split">
+      <div class="prose">
+        <h2>What is Professional Website Design?</h2>
+        <p>Website design isn’t just about colors and layouts: it’s about building a site that loads fast, works properly on every device, and guides visitors toward taking action, whether that’s calling you, filling a form, or making a purchase. A well-designed website also needs to be technically sound, since search engines evaluate page structure and performance as part of how they rank sites.</p>
+        <p>Page speed and user experience directly affect both rankings and how long visitors stay on your site, which is why design and SEO can’t really be separated.</p>
+      </div>
+      <div class="img-placeholder img-placeholder-filled" aria-hidden="true">
+        <img src="/images/website-design.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid exclude="/services/website-design/" />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>What's Included in Our Website Design Service</h2></div>
+      <div class="grid grid-3">
+        {included.map((i) => (<div class="card"><h3>{i.h}</h3><p>{i.b}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Our Website Design Process</h2></div>
+      <ul class="step-list">{steps.map((s) => (<li><span class="num"></span><div><h4>{s.h}</h4><p>{s.b}</p></div></li>))}</ul>
+    </div>
+  </section>
+
+  <AreaGrid areas={areas} title="Areas We Serve" intro="Wherever you're located, we design your website around your local audience, and businesses across all of Pakistan." />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="why-split">
+        <div class="why-heading"><h2>Why Choose Us for Website Design</h2></div>
+        <ul class="list-check">{why.map((w) => (<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {w}</li>))}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><FaqList title="FAQs" items={faqs} /><p class="map-citation">Every site we build is measured against <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">Google's Core Web Vitals</a>.</p></div></section>
+
+  <CtaBand title="Ready for a Website That Actually Works for Your Business?" body="Book a free consultation and let's talk about what your new website needs to achieve." ctaLabel="Get a Free Website Consultation" />
+</BaseLayout>

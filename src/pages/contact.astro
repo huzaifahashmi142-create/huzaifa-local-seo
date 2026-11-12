@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { siteConfig, locations } from '../data/nav';
+import PlatformMarquee from '../components/PlatformMarquee.astro';
+
+const title = 'Contact Huzaifa Local SEO | Request a Free Audit';
+const description = 'Get in touch with Huzaifa Local SEO for a free SEO audit, Google Business Profile review or website consultation. We work with businesses across Pakistan.';
+
+const CONTACT_SERVICES = [
+  'Local SEO',
+  'On-Page SEO',
+  'Off-Page SEO',
+  'Google Business Profile Optimization',
+  'Website Design',
+  'Website Maintenance',
+  'Content Writing',
+  'SEO Audit',
+  'Other Enquiry',
+];
+---
+<BaseLayout title={title} description={description} path="/contact/">
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Contact'}]}
+    eyebrow="Get In Touch"
+    title="Let's start with what matters most to your business"
+    subtitle="Tell us about your business, your services and the areas you want to reach. We'll review what we can see of your current Google Business Profile and website, and get back to you with clear next steps."
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-card">
+          <h2>Request a Free Audit</h2>
+          <p>Fill in the form below and it will be sent directly to us.</p>
+          <form class="contact-form" id="contact-form" novalidate>
+            <input type="checkbox" name="botcheck" class="botcheck-field" tabindex="-1" autocomplete="off" />
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" maxlength="200" required />
+                <span class="field-error" data-error-for="name">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="business">Business Name</label>
+                <input type="text" id="business" name="business" maxlength="200" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" maxlength="200" required />
+                <span class="field-error" data-error-for="email">Please enter a valid email address.</span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" maxlength="40" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="service">Service You're Interested In</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  {CONTACT_SERVICES.map((s) => <option value={s}>{s}</option>)}
+                </select>
+                <span class="field-error" data-error-for="service">Please select a service.</span>
+              </div>
+              <div class="field">
+                <label for="city">City / Location</label>
+                <select id="city" name="city" required>
+                  <option value="" disabled selected>Select your city</option>
+                  {locations.map((l) => <option value={l.title}>{l.title}</option>)}
+                  <option value="Other">Other</option>
+                </select>
+                <span class="field-error" data-error-for="city">Please select your city.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Tell Us About Your Business</label>
+              <textarea id="message" name="message" rows="5" maxlength="5000" placeholder="What do you offer, and what would you like help with?" required></textarea>
+              <span class="field-error" data-error-for="message">Please tell us a little about your business.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="contact-submit-btn">
+              <span class="btn-label">Send Request</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+
+            <p id="form-note" style="font-size:0.82rem; color: var(--text-muted);">Submitting this form sends your details directly to us by email.</p>
+
+            <div id="form-status" class="form-status" role="status" aria-live="polite" hidden></div>
+          </form>
+        </div>
+
+        <aside>
+          <div class="card contact-info-card">
+            <h3>Contact Details</h3>
+            <p>Email: <a href={`mailto:${siteConfig.email}`} style="color: var(--blue-400);">{siteConfig.email}</a></p>
+            <p>We work with businesses across Pakistan, with dedicated local SEO coverage for Karachi, Lahore, Islamabad, Faisalabad, Multan, Peshawar, Quetta and Sialkot.</p>
+          </div>
+          <div class="card contact-info-card" style="margin-top:20px;">
+            <h3>What Happens Next</h3>
+            <ul class="list-check">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> We review what's publicly visible on your Google Business Profile and website.</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> We reply with a plain-language summary of what's working and what isn't.</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> If it's a good fit, we'll outline a scope and quote before any work begins.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .contact-form-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .contact-form-card h2 { margin-top: 0; }
+    form.contact-form { margin-top: 20px; }
+    .contact-info-card { height: fit-content; }
+    @media (max-width: 640px) {
+      .contact-form-card { padding: 24px; }
+    }
+    .botcheck-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .field.has-error input,
+    .field.has-error select,
+    .field.has-error textarea {
+      border-color: #ef4444;
+    }
+    .field-error {
+      display: none;
+      font-size: 0.78rem;
+      color: #f87171;
+      margin-top: 5px;
+    }
+    .field.has-error .field-error { display: block; }
+    #contact-submit-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    #contact-submit-btn:disabled { opacity: 0.75; cursor: not-allowed; }
+    .btn-spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: #fff;
+      animation: contact-spin 0.7s linear infinite;
+    }
+    #contact-submit-btn.is-loading .btn-spinner { display: inline-block; }
+    #contact-submit-btn.is-loading .btn-label { opacity: 0.85; }
+    @keyframes contact-spin { to { transform: rotate(360deg); } }
+    .form-status {
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .form-status.success {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.35);
+      color: #4ade80;
+    }
+    .form-status.error {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.35);
+      color: #f87171;
+    }
+  </style>
+</BaseLayout>
+
+<script>
+  const CONTACT_ENDPOINT = '/api/contact.php';
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('contact-submit-btn') as HTMLButtonElement | null;
+  const statusBox = document.getElementById('form-status') as HTMLDivElement | null;
+
+  let isSubmitting = false;
+
+  function setStatus(message: string, type: 'success' | 'error') {
+    if (!statusBox) return;
+    statusBox.textContent = message;
+    statusBox.className = 'form-status ' + type;
+    statusBox.hidden = false;
+  }
+
+  function clearFieldErrors() {
+    form?.querySelectorAll('.field.has-error').forEach((f) => f.classList.remove('has-error'));
+  }
+
+  function markError(id: string) {
+    document.getElementById(id)?.closest('.field')?.classList.add('has-error');
+  }
+
+  function validate(data: FormData): boolean {
+    let valid = true;
+    const name = (data.get('name') || '').toString().trim();
+    const email = (data.get('email') || '').toString().trim();
+    const service = (data.get('service') || '').toString().trim();
+    const city = (data.get('city') || '').toString().trim();
+    const message = (data.get('message') || '').toString().trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name) { markError('name'); valid = false; }
+    if (!email || !emailPattern.test(email)) { markError('email'); valid = false; }
+    if (!service) { markError('service'); valid = false; }
+    if (!city) { markError('city'); valid = false; }
+    if (!message) { markError('message'); valid = false; }
+    return valid;
+  }
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (isSubmitting) return;
+
+      if (statusBox) statusBox.hidden = true;
+      clearFieldErrors();
+
+      const data = new FormData(form);
+
+      if (!validate(data)) {
+        setStatus('Please fill in the required fields before submitting.', 'error');
+        return;
+      }
+
+      if (data.get('botcheck')) {
+        // Likely a bot; silently stop without revealing detection.
+        return;
+      }
+
+      const payload = {
+        name: data.get('name'),
+        email: data.get('email'),
+        phone: data.get('phone'),
+        city: data.get('city'),
+        service: data.get('service'),
+        business: data.get('business'),
+        message: data.get('message'),
+        botcheck: data.get('botcheck'),
+        source_page: window.location.href,
+      };
+
+      isSubmitting = true;
+      submitBtn?.classList.add('is-loading');
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        let result: { success?: boolean; message?: string } = {};
+        try {
+          result = await res.json();
+        } catch {
+          result = {};
+        }
+
+        if (res.ok && result.success) {
+          setStatus(result.message || "Thank you! Your enquiry has been submitted. Our team will contact you using the details provided.", 'success');
+          form.reset();
+        } else {
+          setStatus("We couldn't submit your enquiry right now. Please try again.", 'error');
+        }
+      } catch {
+        setStatus("We couldn't submit your enquiry right now. Please try again.", 'error');
+      } finally {
+        isSubmitting = false;
+        submitBtn?.classList.remove('is-loading');
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
+</script>

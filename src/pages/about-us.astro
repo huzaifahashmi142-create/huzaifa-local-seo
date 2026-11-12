@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import PlatformMarquee from '../components/PlatformMarquee.astro';
+
+const title = 'About Huzaifa Local SEO | Local SEO Agency in Pakistan';
+const description = 'Learn how Huzaifa Local SEO approaches on-page SEO, off-page SEO, GMB optimization, content writing, website design and website maintenance for businesses in Pakistan.';
+---
+<BaseLayout title={title} description={description} path="/about-us/">
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'About Us'}]}
+    eyebrow="About Us"
+    title="A practical SEO partner for businesses across Pakistan"
+    subtitle="Huzaifa Local SEO is a local SEO and digital marketing service focused on helping businesses improve their online presence and reach the right local customers."
+  />
+
+  <PlatformMarquee />
+
+  <section class="section about-approach-section">
+    <div class="container">
+      <div class="grid grid-2 about-approach-grid">
+        <div class="about-main-col">
+          <div class="about-box about-intro-box">
+            <p>We work on the areas that can make a real difference to a business website, including On-Page SEO, Off-Page SEO, GMB Optimization, Content Writing, Website Design and Website Maintenance.</p>
+            <p>Our approach is simple: understand the business, understand its customers, improve the website and local presence, and build a clear SEO strategy around real search intent.</p>
+          </div>
+
+          <div class="about-box">
+            <h2>Our Approach</h2>
+            <p>We don&rsquo;t believe every business needs the exact same SEO plan. A local business may need a different strategy from an online service business. That&rsquo;s why we first look at the business, target audience, website, services, location and search intent before deciding what needs attention.</p>
+            <ul class="about-check-grid">
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Understanding the target audience</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Finding relevant search terms</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Improving website pages</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Optimizing local business information</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Creating useful content</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Building relevant online signals</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Improving website usability</li>
+              <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Reviewing SEO performance and finding areas that need further improvement</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="about-aside-col">
+          <div class="about-box about-aside-box">
+            <span class="about-aside-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3>Who We Help</h3>
+            <p>Huzaifa Local SEO can work with businesses that want to improve their local or online visibility, including:</p>
+            <ul class="about-aside-list">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Home improvement</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Furniture</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Construction</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Web agencies</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Local service businesses</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Other location-based businesses</li>
+            </ul>
+          </div>
+          <div class="about-box about-aside-box">
+            <span class="about-aside-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </span>
+            <h3>Our Goal</h3>
+            <p>Our goal is to provide practical SEO and digital services that are easy to understand and connected to real business needs. Whether you need help with Local SEO, your Google Business Profile, website content, website design or ongoing website maintenance, we aim to keep the process clear and focused.</p>
+          </div>
+          <div class="about-box about-aside-box">
+            <span class="about-aside-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <h3>Why Clear SEO Matters</h3>
+            <p>SEO is not only about adding keywords to a page. A useful SEO strategy connects the business, service, location, website content and customer search intent. The goal is to make the website easier to understand and more useful for people searching for the services a business provides.</p>
+            <p>We also avoid making unrealistic promises such as guaranteed Google rankings. Search results can change because of many factors, and SEO should be treated as an ongoing process.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-approach-grid { gap: 40px; align-items: start; }
+    .about-main-col { display: grid; gap: 24px; }
+    .about-aside-col { display: grid; gap: 20px; }
+    .about-box {
+      background: linear-gradient(160deg, var(--navy-800), var(--navy-850));
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 32px 36px;
+    }
+    .about-intro-box p:last-child { margin-bottom: 0; }
+    .about-box h2 { margin-top: 0; }
+    .about-box > p:last-of-type { margin-bottom: 0; }
+    .about-check-grid {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .about-check-grid li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--navy-700);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .about-check-icon {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .about-aside-box { position: relative; padding-top: 28px; }
+    .about-aside-icon {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--gradient-soft);
+      color: var(--blue-400);
+      margin-bottom: 14px;
+    }
+    .about-aside-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+    .about-aside-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .about-aside-list li svg { flex-shrink: 0; color: var(--blue-400); }
+    @media (max-width: 860px) {
+      .about-check-grid { grid-template-columns: 1fr; }
+      .about-box { padding: 26px 24px; }
+    }
+  </style>
+
+  <ServiceGrid title="Explore Our Services" />
+
+  <CtaBand
+    title="Let's Start With What Matters Most to Your Business"
+    body="If you want to improve your website or local online presence, get in touch and tell us about your business, target location and current SEO needs."
+    ctaLabel="Contact Huzaifa Local SEO"
+  />
+</BaseLayout>

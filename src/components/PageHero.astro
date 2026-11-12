@@ -1,0 +1,25 @@
+---
+interface Crumb { label: string; href?: string }
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  crumbs?: Crumb[];
+  ctaPrimary?: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
+}
+const { eyebrow, title, subtitle, ctaPrimary, ctaSecondary } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    {eyebrow && <span class="badge">{eyebrow}</span>}
+    <h1 style="margin-top:16px;">{title}</h1>
+    {subtitle && <p class="hero-sub">{subtitle}</p>}
+    {(ctaPrimary || ctaSecondary) && (
+      <div class="btn-row" style="margin-top:22px;">
+        {ctaPrimary && <a href={ctaPrimary.href} class="btn btn-primary">{ctaPrimary.label}</a>}
+        {ctaSecondary && <a href={ctaSecondary.href} class="btn btn-outline">{ctaSecondary.label}</a>}
+      </div>
+    )}
+  </div>
+</section>

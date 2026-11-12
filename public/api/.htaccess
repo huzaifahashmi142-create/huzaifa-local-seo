@@ -1,0 +1,13 @@
+# Ensure PHP files in this directory are executed, never served as plain text/source.
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# Block directory listing.
+Options -Indexes
+
+# Block direct access to the rate-limit storage folder.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^\.rl/ - [F,L]
+</IfModule>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaGrid from '../../components/AreaGrid.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import FaqList from '../../components/FaqList.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'Website Maintenance Services in Pakistan | Huzaifa Local SEO';
+const description = 'Reliable website maintenance services in Pakistan. Keep your site secure, updated and fast with monthly maintenance plans.';
+const pageUrl = 'https://huzaifalocalseo.com/services/website-maintenance/';
+
+const included = [
+  { h: 'Regular Software & Plugin Updates', b: 'Keeping your CMS and plugins current to avoid security gaps.' },
+  { h: 'Security Monitoring & Malware Scans', b: 'Checking for vulnerabilities and threats before they become problems.' },
+  { h: 'Automatic Backups', b: 'Regular backups so your site can be restored quickly if anything goes wrong.' },
+  { h: 'Uptime Monitoring', b: 'Keeping track of your site’s availability and alerting you to any downtime.' },
+  { h: 'Broken Link & Error Fixes', b: 'Finding and fixing 404 errors and broken pages that hurt user experience.' },
+  { h: 'Speed Optimization', b: 'Ongoing checks to keep your site loading quickly as content grows.' },
+  { h: 'Content Updates', b: 'Making small text, image, or page updates as your business needs change.' },
+];
+
+const steps = [
+  { h: 'Initial Site Audit', b: 'We check your website’s current health, security, and performance.' },
+  { h: 'Setup & Backups', b: 'We configure regular backups and monitoring systems.' },
+  { h: 'Ongoing Monitoring', b: 'We watch for security threats, downtime, and performance issues continuously.' },
+  { h: 'Monthly Updates', b: 'Software, plugins, and content are kept current on a scheduled basis.' },
+  { h: 'Reporting', b: 'You receive a summary of what was checked, updated, or fixed each month.' },
+];
+
+const areas = ['Karachi: Clifton, DHA, Gulshan-e-Iqbal', 'Lahore: Gulberg, DHA, Model Town, Johar Town', 'Islamabad: F-6, F-7, F-8, Blue Area, G-9', 'Rawalpindi: Saddar, Bahria Town, Satellite Town', 'Faisalabad: D Ground, Jinnah Colony, Madina Town', 'Multan: Cantt, Gulgasht Colony, Bosan Road', 'Peshawar: University Town, Hayatabad, Saddar'];
+
+const why = [
+  'Proactive, not reactive: we catch issues before they cause downtime or data loss.',
+  'Fast response times: when something does go wrong, we act quickly to fix it.',
+  'Affordable monthly plans: predictable pricing instead of expensive emergency fixes.',
+  'Works with any website: whether we built your site or not, we can take over its maintenance.',
+];
+
+const faqs = [
+  { q: 'What does website maintenance include?', a: 'It includes software and plugin updates, security monitoring, backups, speed checks, and fixing broken links or errors: everything needed to keep a site running smoothly.' },
+  { q: 'How often should a website be updated?', a: 'Core software and plugins should be checked and updated monthly at minimum, though security monitoring should run continuously in the background.' },
+  { q: 'What happens if my website gets hacked?', a: 'If you’re on one of our maintenance plans, we restore your site from a recent backup and patch the vulnerability that caused the issue, minimizing downtime.' },
+  { q: 'Do you offer monthly maintenance plans?', a: 'Yes, we offer ongoing monthly maintenance plans so your website stays secure and updated without you having to manage it yourself.' },
+  { q: 'Why is website maintenance important for SEO?', a: 'Search engines factor in site speed, security, and uptime when ranking pages. A poorly maintained, slow, or insecure site can lose rankings even if the content itself is strong.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Website Maintenance', provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: 'PK', url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={title} description={description} path="/services/website-maintenance/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'Website Maintenance'}]}
+    eyebrow="Website Maintenance"
+    title="Website Maintenance Services in Pakistan for Secure, Fast Websites"
+    subtitle="A website isn't something you build once and forget. Our website maintenance services take the ongoing technical care off your plate, so your site stays fast, secure, and online without you having to think about it."
+    ctaPrimary={{label: 'Get a Free Site Health Check', href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container intro-split">
+      <div class="prose">
+        <h2>What is Website Maintenance?</h2>
+        <p>Website maintenance covers the ongoing technical care a website needs after it’s launched: software updates, security monitoring, backups, broken link fixes, and performance checks. Without it, websites gradually slow down, become vulnerable to hacks, or simply stop working properly.</p>
+        <p>Outdated, unmaintained websites are far more likely to be flagged for security issues, which can seriously damage both your traffic and your reputation if your site isn’t kept up to date.</p>
+      </div>
+      <div class="img-placeholder img-placeholder-filled" aria-hidden="true">
+        <img src="/images/website-maintenance.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid exclude="/services/website-maintenance/" />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>What's Included in Our Website Maintenance Service</h2></div>
+      <div class="grid grid-2">{included.map((i) => (<div class="card"><h3>{i.h}</h3><p>{i.b}</p></div>))}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Our Website Maintenance Process</h2></div>
+      <ul class="step-list">{steps.map((s) => (<li><span class="num"></span><div><h4>{s.h}</h4><p>{s.b}</p></div></li>))}</ul>
+    </div>
+  </section>
+
+  <AreaGrid areas={areas} title="Areas We Serve" intro="Wherever your website's server or business is based, we manage its upkeep remotely, for businesses across all of Pakistan." />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="why-split">
+        <div class="why-heading"><h2>Why Choose Us for Website Maintenance</h2></div>
+        <ul class="list-check">{why.map((w) => (<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {w}</li>))}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><FaqList title="FAQs" items={faqs} /><p class="map-citation">Security checks follow <a href="https://developers.google.com/search/docs/monitor-debug/security/malware" target="_blank" rel="noopener noreferrer">Google's website security guidance</a>.</p></div></section>
+
+  <CtaBand title="Worried About Your Website Breaking Down?" body="Get a free site health check and see exactly where your website stands." ctaLabel="Get a Free Site Health Check" />
+</BaseLayout>

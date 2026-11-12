@@ -1,0 +1,21 @@
+---
+interface Props { areas: string[]; title?: string; intro?: string }
+const { areas, title = 'Areas We Serve', intro } = Astro.props;
+---
+<section class="section section-tight section-where-work">
+  <div class="where-work-gfx" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head center">
+      <h2>{title}</h2>
+      {intro && <p>{intro}</p>}
+    </div>
+    <div class="area-tag-grid area-tag-grid-center">
+      {areas.map((a) => (
+        <div class="area-tag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>{a}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

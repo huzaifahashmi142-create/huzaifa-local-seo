@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import AreaGrid from '../../components/AreaGrid.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import FaqList from '../../components/FaqList.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import PlatformMarquee from '../../components/PlatformMarquee.astro';
+
+const title = 'Off-Page SEO Services in Pakistan | Huzaifa Local SEO';
+const description = 'Off-page SEO services in Pakistan: business listings, local citations, relevant backlinks and brand mentions that build trust and authority for your website.';
+const pageUrl = 'https://huzaifalocalseo.com/services/off-page-seo/';
+
+const included = [
+  { h: 'Business Listings & Directories', b: 'Accurate profiles on trusted Pakistani and global directories, with your name, address and phone number consistent everywhere.' },
+  { h: 'Local Citations', b: 'Creating and correcting citations so Google can confidently match your business details across the web.' },
+  { h: 'Relevant Backlinks', b: 'Earning links from legitimate, relevant websites rather than large numbers of low-quality links that can do more harm than good.' },
+  { h: 'Guest Posting & Web 2.0', b: 'Appropriate guest posting and Web 2.0 properties that support your industry authority where they genuinely fit.' },
+  { h: 'B2B & Industry Listings', b: 'For manufacturers, exporters and B2B service businesses, listings on relevant buyer-facing platforms.' },
+  { h: 'Listing Cleanup', b: 'Finding and correcting old phone numbers, outdated addresses and duplicate listings that confuse customers and Google.' },
+];
+
+const steps = [
+  { h: 'Citation & Backlink Audit', b: 'We review your current listings, citations and backlink profile to see what’s helping and what’s inconsistent.' },
+  { h: 'Opportunity Research', b: 'We identify relevant directories, platforms and websites connected to your industry and location.' },
+  { h: 'Listing & Citation Building', b: 'We create and correct citations so your business details match everywhere.' },
+  { h: 'Link Building', b: 'We pursue quality links from legitimate, relevant sources, not bulk or spammy link schemes.' },
+  { h: 'Monthly Monitoring', b: 'We track new citations, links and mentions, and report on what’s been completed.' },
+];
+
+const areas = ['Karachi: Clifton, DHA, Gulshan-e-Iqbal', 'Lahore: Gulberg, DHA, Model Town, Johar Town', 'Islamabad: F-6, F-7, F-8, Blue Area, G-9', 'Rawalpindi: Saddar, Bahria Town, Satellite Town', 'Faisalabad: D Ground, Jinnah Colony, Madina Town', 'Multan: Cantt, Gulgasht Colony, Bosan Road', 'Sialkot: Cantt, Defence Road, Model Town'];
+
+const why = [
+  'Quality over quantity: a handful of strong, relevant links does more for your business than hundreds of unrelated ones.',
+  'Consistent NAP data: we keep your name, address and phone number identical across every listing Google checks.',
+  'No spammy link schemes: every link and listing is chosen for relevance, not shortcuts that risk a penalty.',
+  'Built to support local SEO: off-page work is planned alongside your Google Business Profile and website, not separately.',
+];
+
+const faqs = [
+  { q: 'What is off-page SEO?', a: 'Off-page SEO covers the signals outside your own website that help Google trust your business, mainly citations, backlinks and mentions on other relevant websites.' },
+  { q: 'Is off-page SEO the same as link building?', a: 'Link building is part of off-page SEO, but off-page SEO also includes business listings, local citations and brand mentions that support your credibility beyond links alone.' },
+  { q: 'Will you use spammy or low-quality links?', a: 'No. We focus on legitimate, relevant directories and websites. Low-quality or spammy links can hurt your rankings, so we avoid them even if they promise faster results.' },
+  { q: 'How does off-page SEO help local businesses specifically?', a: 'Consistent citations and relevant local mentions are some of the strongest trust signals Google uses for local rankings, alongside your Google Business Profile.' },
+  { q: 'How long does off-page SEO take to show results?', a: 'Citation and listing work can show improvements within a few weeks, while the authority built through relevant backlinks typically strengthens over three to six months.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Off-Page SEO', provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: 'PK', url: pageUrl },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<BaseLayout title={title} description={description} path="/services/off-page-seo/" schema={schema}>
+  <PageHero
+    crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'Off-Page SEO'}]}
+    eyebrow="Off-Page SEO"
+    title="Off-Page SEO Services in Pakistan to Build Real Authority"
+    subtitle="A strong website also needs a trustworthy presence outside its own pages. We build your business's reputation across the web through business listings, local citations and relevant link building, so Google trusts your business as much as your customers do."
+    ctaPrimary={{label: 'Get a Free Off-Page SEO Review', href: '/contact/'}}
+    ctaSecondary={{label: 'View Our Services', href: '/services/'}}
+  />
+
+  <PlatformMarquee />
+
+  <section class="section">
+    <div class="container intro-split">
+      <div class="prose">
+        <h2>What is Off-Page SEO?</h2>
+        <p>Off-page SEO covers the activities that build your business's trust and authority outside your own website: accurate listings on business directories, consistent local citations, relevant backlinks and mentions on websites connected to your industry.</p>
+        <p>Where on-page SEO tells Google what your website says about itself, off-page SEO is what the rest of the internet says about your business. The two work together, not as substitutes for each other.</p>
+      </div>
+      <div class="img-placeholder img-placeholder-filled" aria-hidden="true">
+        <img src="/images/what-is-off-page-seo.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <ServiceGrid exclude="/services/off-page-seo/" />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head"><h2>What's Included in Our Off-Page SEO Service</h2></div>
+      <div class="grid grid-2">{included.map((i) => (<div class="card"><h3>{i.h}</h3><p>{i.b}</p></div>))}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Our Off-Page SEO Process</h2></div>
+      <ul class="step-list">{steps.map((s) => (<li><span class="num"></span><div><h4>{s.h}</h4><p>{s.b}</p></div></li>))}</ul>
+    </div>
+  </section>
+
+  <AreaGrid areas={areas} title="Areas We Serve" intro="We build citations and relevant links for businesses across these cities, and businesses anywhere in Pakistan." />
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="why-split">
+        <div class="why-heading"><h2>Why Choose Us for Off-Page SEO</h2></div>
+        <ul class="list-check">{why.map((w) => (<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> {w}</li>))}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><FaqList title="FAQs" items={faqs} /><p class="map-citation">Our link-building approach follows <a href="https://developers.google.com/search/docs/crawling-indexing/links-crawlable" target="_blank" rel="noopener noreferrer">Google's link best practices</a>.</p></div></section>
+
+  <CtaBand title="Ready to Build Real Authority for Your Business?" body="Get a free review of your current listings, citations and backlink profile." ctaLabel="Get a Free Off-Page SEO Review" />
+</BaseLayout>
