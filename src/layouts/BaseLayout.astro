@@ -10,9 +10,11 @@ interface Props {
   path?: string;
   schema?: object | object[];
   ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
-const { title, description, path = '/', schema } = Astro.props;
+const { title, description, path = '/', schema, ogImage = `${siteConfig.url}/og-image.jpg`, ogTitle = title, ogDescription = description } = Astro.props;
 const canonical = new URL(path, siteConfig.url).toString();
 const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 ---
@@ -30,12 +32,14 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteConfig.name} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

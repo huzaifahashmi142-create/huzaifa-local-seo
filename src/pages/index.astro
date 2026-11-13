@@ -6,26 +6,12 @@ import { siteConfig, locations } from '../data/nav';
 import { getServiceIcon } from '../data/serviceIcons';
 import PlatformMarquee from '../components/PlatformMarquee.astro';
 
-const title = 'Huzaifa Local SEO | Local SEO & Google Business Profile Services in Pakistan';
+const title = 'Huzaifa Local SEO | Local SEO Services in Karachi, Pakistan';
+const ogTitle = 'Huzaifa Local SEO | Local SEO in Karachi, Pakistan';
+const ogDescription = 'Local SEO, GBP optimization, and on-page SEO services for businesses in Karachi — DHA, Clifton, Gulshan, Johar.';
+// Update dateModified whenever this page's content changes.
+const dateModified = '2026-11-14';
 const description = 'Huzaifa Local SEO helps businesses across Pakistan rank on Google and Google Maps with local SEO, GMB optimization, website design and content writing.';
-
-const schema = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/favicon.svg`,
-    areaServed: 'PK',
-    sameAs: [],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-];
 
 const services = [
   { title: 'On-Page SEO', href: '/services/on-page-seo/', body: 'Titles, headings, content, internal links and page speed fixed so Google understands and ranks your pages.' },
@@ -51,13 +37,58 @@ const trustPoints = [
 ];
 
 const faqs = [
-  { q: 'What does Huzaifa Local SEO actually do?', a: 'We help businesses in Pakistan improve how they appear on Google Search and Google Maps, through on-page and off-page SEO, Google Business Profile optimization, content writing, website design and website maintenance.' },
-  { q: 'Do you only work with businesses in Karachi?', a: 'No. While we have detailed local SEO coverage for Karachi, Lahore, Islamabad, Faisalabad, Multan, Peshawar, Quetta and Sialkot, we work with businesses across Pakistan.' },
+  { q: 'What is local SEO and how does it help my business?', a: 'Local SEO is the work of improving how your business appears on Google Search and Google Maps for nearby customers. It combines Google Business Profile optimization, on-page SEO and consistent listings so people searching in your area find you first.' },
+  { q: 'How much does local SEO cost in Pakistan?', a: 'Cost depends on your competition, number of locations and the services you need, so we quote after a free audit instead of using a one-size-fits-all price. You will see exactly what is included before you commit.' },
+  { q: 'Should I only hire a local SEO provider in Karachi?', a: 'Not necessarily, but a provider that knows your area helps. We have detailed local SEO coverage for Karachi, Lahore, Islamabad, Faisalabad, Multan, Peshawar, Quetta and Sialkot, and we work with businesses across Pakistan.' },
   { q: 'Can you guarantee a #1 ranking on Google?', a: 'No honest SEO provider can guarantee a specific ranking. Search results depend on many factors outside anyone’s direct control. We focus on applying sound SEO practices and improving your visibility over time.' },
-  { q: 'How do I get started?', a: 'Request a free audit through our contact page. Tell us about your business, your services and the areas you serve, and we’ll review your current Google Business Profile and website before recommending next steps.' },
+  { q: 'How do I get started with Huzaifa Local SEO?', a: 'Request a free audit through our contact page. Tell us about your business, your services and the areas you serve, and we’ll review your current Google Business Profile and website before recommending next steps.' },
 ];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/favicon.svg`,
+    areaServed: 'PK',
+    sameAs: [],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Huzaifa Local SEO | Local SEO & GBP Services in Pakistan',
+    description: 'Local SEO and Google Business Profile optimization for businesses in Karachi, Pakistan.',
+    url: `${siteConfig.url}/`,
+    isPartOf: { '@type': 'WebSite', url: `${siteConfig.url}/` },
+    about: { '@type': 'Organization', name: 'Huzaifa Local SEO' },
+    datePublished: '2026-01-01',
+    dateModified,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/` }],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+
 ---
-<BaseLayout title={title} description={description} path="/" schema={schema}>
+<BaseLayout title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} path="/" schema={schema}>
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -66,8 +97,8 @@ const faqs = [
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17l6-6 4 4 8-8M21 7h-6v6"/></svg>
             Local SEO & Digital Growth Partner
           </span>
-          <h1>Turn Google searches into <span class="accent">real local customers</span></h1>
-          <p class="hero-sub">We help businesses across Pakistan show up on Google Search and Google Maps, with local SEO, Google Business Profile optimization, content and website services built around real search intent, not guesswork.</p>
+          <h1>Local SEO &amp; Google Business Profile Services for Karachi Businesses</h1>
+          <p class="hero-sub">Huzaifa Local SEO helps small and medium businesses in Karachi (DHA, Clifton, Gulshan, Johar) rank higher on Google through local SEO, Google Business Profile optimization, and on-page SEO — so they get found by nearby customers searching for their services.</p>
 
           <div class="hero-stats">
             <div class="hero-stat">
@@ -198,7 +229,8 @@ const faqs = [
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">What We Do</span>
-        <h2>SEO and digital services that work together</h2>
+        <h2>What Local SEO Services Do We Offer?</h2>
+        <p><strong>We offer six connected services: on-page SEO, off-page SEO, Google Business Profile (GMB) optimization, website design, website maintenance and content writing.</strong></p>
         <p>We don&rsquo;t believe every business needs the exact same plan. We look at your business, your audience and your current website before deciding what actually needs attention.</p>
       </div>
       <div class="grid grid-3 services-grid">
@@ -219,7 +251,8 @@ const faqs = [
       <div class="why-matters-grid">
         <div class="why-matters-main">
           <span class="eyebrow">Why It Matters</span>
-          <h2>Most customers decide before they ever visit your website</h2>
+          <h2>What Is Local SEO and Why Does It Matter?</h2>
+          <p><strong>Local SEO is the process of optimizing your Google Business Profile, website and online listings so your business appears when nearby customers search for your services.</strong></p>
           <p>Someone searching for your service on Google usually sees a map with three businesses, and a list of websites below it. The businesses in those spots get most of the calls, direction requests and visits. Everyone else gets very few.</p>
           <p>Local SEO is the work that earns your business a place there: your Google Business Profile, your website, and your presence across the rest of the web, all working together.</p>
           <a href="/about-us/" class="btn btn-primary">More About Our Approach</a>
@@ -263,6 +296,9 @@ const faqs = [
 
   <style>
     .why-matters { background: #0a0f1c; }
+    .package-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+    .package-table th, .package-table td { padding: 12px 14px; border: 1px solid #E2E9F4; text-align: left; }
+    .package-table thead th { background: #F7FAFF; color: #071735; }
     .section-faq-block { background: #0d1424; }
     .why-matters-grid {
       display: grid;
@@ -353,14 +389,15 @@ const faqs = [
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">How We Work</span>
-        <h2>A clear process, from audit to results</h2>
+        <h2>How Does Our Local SEO Process Work?</h2>
+        <p><strong>We work in four steps: audit your current visibility, research keywords and competitors, optimize your profile and website, then report results every month.</strong></p>
       </div>
       <ul class="step-list grid grid-2" style="gap:28px 40px;">
         {steps.map((s) => (
           <li>
             <span class="num"></span>
             <div>
-              <h4>{s.title}</h4>
+              <h3>{s.title}</h3>
               <p>{s.body}</p>
             </div>
           </li>
@@ -374,7 +411,8 @@ const faqs = [
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">Where We Work</span>
-        <h2>Local SEO coverage across Pakistan</h2>
+        <h2>Where Do We Provide Local SEO Services?</h2>
+        <p><strong>We focus on Karachi (DHA, Clifton, Gulshan, Johar) with dedicated strategies for eight major Pakistani cities, and work with businesses anywhere in Pakistan.</strong></p>
         <p>We provide dedicated local SEO strategies for major cities, and work with businesses anywhere in Pakistan.</p>
       </div>
       <div class="area-tag-grid">
@@ -395,7 +433,8 @@ const faqs = [
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">Why Businesses Work With Us</span>
-        <h2>SEO you can actually verify</h2>
+        <h2>Why Choose Huzaifa Local SEO?</h2>
+        <p><strong>Because we never promise guaranteed rankings, and we show you exactly what we changed and what happened, every month.</strong></p>
         <p>We&rsquo;d rather be honest about how local SEO works than make promises we can&rsquo;t keep.</p>
       </div>
       <div class="grid grid-4">
@@ -412,13 +451,54 @@ const faqs = [
     </div>
   </section>
 
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Pricing</span>
+        <h2>How Much Does Local SEO Cost in Pakistan?</h2>
+        <p><strong>Local SEO pricing depends on your competition, locations and the services you need, so we quote after a free audit instead of using a fixed price list.</strong></p>
+        <p>Every quote spells out what is included, so you know what you are paying for before you start.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Packages</span>
+        <h2>What&rsquo;s Included in Our Packages?</h2>
+        <p><strong>Every package covers the local SEO essentials; higher tiers add more content, off-page work and reporting depth.</strong></p>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="package-table">
+          <thead>
+            <tr><th scope="col">Feature</th><th scope="col">Starter</th><th scope="col">Growth</th><th scope="col">Pro</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Google Business Profile optimization</th><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">On-page SEO fixes</th><td>Core pages</td><td>All key pages</td><td>Full site</td></tr>
+            <tr><th scope="row">Local citations &amp; listings</th><td>Basic</td><td>Expanded</td><td>Expanded + monitoring</td></tr>
+            <tr><th scope="row">SEO content writing</th><td>&mdash;</td><td>Monthly</td><td>Weekly</td></tr>
+            <tr><th scope="row">Monthly reporting</th><td>Yes</td><td>Yes</td><td>Yes + strategy call</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center; margin-top:16px;"><a href="/contact/" class="btn btn-primary">Get a Custom Quote</a></p>
+    </div>
+  </section>
+
+  {/* TODO(proof): Add one real, verified result here, e.g. "Helped a Clifton salon move from page 3 to the
+      top 3 local pack results in 6 weeks", or a labeled before/after GBP screenshot. Only publish with real
+      client data and permission. Intentionally not rendered until then. */}
+
   <section class="section section-faq-block">
     <div class="container">
       <div class="grid grid-2" style="gap:48px;">
         <FaqList title="Common Questions" items={faqs} />
         <div>
           <span class="eyebrow">Who We Help</span>
-          <h2>Built for real Pakistani businesses</h2>
+          <h2>Who Is This Service For?</h2>
+          <p><strong>This service is for small and medium businesses in Karachi (and across Pakistan) that depend on nearby customers finding them on Google.</strong></p>
           <p>Huzaifa Local SEO works with businesses that want to improve their local or online visibility, including home improvement, furniture, construction, web agencies, local service businesses and other location-based businesses.</p>
           <p>We avoid making unrealistic promises such as guaranteed Google rankings. Search results can change for many reasons, and SEO is best treated as an ongoing process, not a one-time fix.</p>
           <a href="/contact/" class="btn btn-primary">Talk to Us About Your Business</a>
