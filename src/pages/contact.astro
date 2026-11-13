@@ -188,7 +188,7 @@ const CONTACT_SERVICES = [
 </BaseLayout>
 
 <script>
-  const CONTACT_ENDPOINT = '/api/contact.php';
+  const CONTACT_ENDPOINT = 'https://api.web3forms.com/submit';
 
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const submitBtn = document.getElementById('contact-submit-btn') as HTMLButtonElement | null;
@@ -249,6 +249,7 @@ const CONTACT_SERVICES = [
       }
 
       const payload = {
+        access_key: '2964cca7-2444-49c2-85c7-89fd4f334f95',
         name: data.get('name'),
         email: data.get('email'),
         phone: data.get('phone'),
