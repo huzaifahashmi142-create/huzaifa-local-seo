@@ -4,16 +4,20 @@ interface Props {
   eyebrow?: string;
   title: string;
   subtitle?: string;
+  summary?: string;
+  proof?: string;
   crumbs?: Crumb[];
   ctaPrimary?: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
 }
-const { eyebrow, title, subtitle, ctaPrimary, ctaSecondary } = Astro.props;
+const { eyebrow, title, subtitle, summary, proof, ctaPrimary, ctaSecondary } = Astro.props;
 ---
 <section class="page-hero">
   <div class="container">
     {eyebrow && <span class="badge">{eyebrow}</span>}
     <h1 style="margin-top:16px;">{title}</h1>
+    {summary && <p class="hero-sub page-summary">{summary}</p>}
+    {proof && <p class="hero-sub page-proof"><strong>Real result:</strong> {proof}</p>}
     {subtitle && <p class="hero-sub">{subtitle}</p>}
     {(ctaPrimary || ctaSecondary) && (
       <div class="btn-row" style="margin-top:22px;">

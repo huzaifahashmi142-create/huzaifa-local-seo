@@ -52,10 +52,12 @@ const schema = [
 ];
 ---
 <BaseLayout title={title} description={description} path="/services/website-maintenance/" schema={schema}>
+  {/* TODO(proof): add one real, permitted result for this page. Nothing is shown until then. */}
   <PageHero
     crumbs={[{label:'Home', href:'/'}, {label:'Services', href:'/services/'}, {label:'Website Maintenance'}]}
     eyebrow="Website Maintenance"
     title="Website Maintenance Services in Pakistan for Secure, Fast Websites"
+    summary="Website maintenance means looking after your website after it is built: updates, backups, security checks and fixes. It is for small and medium businesses in Karachi that do not have time to look after their site. We keep it fast, safe and online, so customers in DHA, Clifton, Gulshan and Johar never land on a broken page."
     subtitle="A website isn't something you build once and forget. Our website maintenance services take the ongoing technical care off your plate, so your site stays fast, secure, and online without you having to think about it."
     ctaPrimary={{label: 'Get a Free Site Health Check', href: '/contact/'}}
     ctaSecondary={{label: 'View Our Services', href: '/services/'}}

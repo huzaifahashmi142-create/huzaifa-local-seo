@@ -7,11 +7,18 @@ import CtaBand from './CtaBand.astro';
 import PlatformMarquee from './PlatformMarquee.astro';
 import { getServiceIcon } from '../data/serviceIcons';
 import { services as serviceLinks, locations } from '../data/nav';
+import { caseStudies } from '../data/caseStudies';
 
 const { city } = Astro.props;
 const serviceHrefByTitle: Record<string, string> = Object.fromEntries(serviceLinks.map((s) => [s.title, s.href]));
 const pageUrl = `https://huzaifalocalseo.com/locations/${city.slug}/`;
 const otherLocations = locations.filter((l) => l.href !== `/locations/${city.slug}/`);
+
+const areaList = city.areas.slice(0, 4).join(', ').replace(/, ([^,]*)$/, ' and $1');
+const summary = `Local SEO means helping your business show up when nearby customers search on Google. Huzaifa Local SEO does this for small and medium businesses in ${city.name}, such as clinics, salons, restaurants and shops in ${areaList} and nearby areas. We set up your Google Business Profile, fix your website pages and write useful content, so you do not have to.`;
+const caseStudy = caseStudies.find((c) => c.city === city.name);
+// TODO(proof): Sialkot has no case study yet. Add a real, permitted result in data/caseStudies.ts.
+const proof = caseStudy ? `${caseStudy.client} in ${city.name}: ${caseStudy.result}` : undefined;
 
 const schema = [
   { '@context': 'https://schema.org', '@type': 'Service', serviceType: `Local SEO Services in ${city.name}`, provider: { '@type': 'Organization', name: 'Huzaifa Local SEO' }, areaServed: city.name, url: pageUrl },
@@ -28,6 +35,8 @@ const schema = [
     crumbs={[{label:'Home', href:'/'}, {label:'Locations', href:'/locations/'}, {label: city.name}]}
     eyebrow={`Local SEO in ${city.name}`}
     title={city.h1}
+    summary={summary}
+    proof={proof}
     subtitle={city.heroIntro}
     ctaPrimary={{label: `Get Your ${city.name} Local SEO Audit`, href: '/contact/'}}
     ctaSecondary={{label: 'View Our Services', href: '/services/'}}
