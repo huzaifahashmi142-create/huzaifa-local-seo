@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { siteConfig } from '../data/nav';
+import { organization, webPageFor, breadcrumbsFor } from '../data/schema';
 
 interface Props {
   title: string;
@@ -16,7 +17,15 @@ interface Props {
 
 const { title, description, path = '/', schema, ogImage = `${siteConfig.url}/og-image.jpg`, ogTitle = title, ogDescription = description } = Astro.props;
 const canonical = new URL(path, siteConfig.url).toString();
-const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const pageSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const hasType = (t: string) => pageSchema.some((s: any) => s['@type'] === t);
+// Every page gets the shared Organization once, plus a WebPage and BreadcrumbList unless the page defines its own.
+const schemaList = [
+  organization,
+  ...pageSchema,
+  ...(hasType('WebPage') ? [] : [webPageFor({ name: title, description, url: canonical })]),
+  ...(hasType('BreadcrumbList') || path === '/' ? [] : [breadcrumbsFor(path)]),
+];
 ---
 <!doctype html>
 <html lang="en">

@@ -44,16 +44,8 @@ const faqs = [
   { q: 'How do I get started with Huzaifa Local SEO?', a: 'Request a free audit through our contact page. Tell us about your business, your services and the areas you serve, and we’ll review your current Google Business Profile and website before recommending next steps.' },
 ];
 
+// The Organization schema is defined once in src/data/schema.ts and added by BaseLayout.
 const schema = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/favicon.svg`,
-    areaServed: 'PK',
-    sameAs: [],
-  },
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',

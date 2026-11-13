@@ -4,17 +4,30 @@ import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import ServiceGrid from '../components/ServiceGrid.astro';
 import PlatformMarquee from '../components/PlatformMarquee.astro';
+import FaqList from '../components/FaqList.astro';
 
 const title = 'About Huzaifa Local SEO | Local SEO Agency in Pakistan';
-const description = 'Learn how Huzaifa Local SEO approaches on-page SEO, off-page SEO, GMB optimization, content writing, website design and website maintenance for businesses in Pakistan.';
+const description = 'Meet Huzaifa Local SEO — a Karachi-based agency helping small businesses rank higher on Google with local SEO and Google Business Profile optimization.';
+
+const faqs = [
+  { q: 'What areas of Karachi do you serve?', a: 'We work with businesses in DHA, Clifton, Gulshan-e-Iqbal, Gulistan-e-Johar, PECHS, North Nazimabad, Nazimabad, Korangi, Malir, Saddar, SITE and Federal B Area, and we plan your work around the areas you actually serve.' },
+  { q: 'What makes Huzaifa Local SEO different from other agencies?', a: 'We never promise a guaranteed ranking, we send plain monthly reports on what changed, and one team handles your profile, website and content together so nothing falls through the gaps.' },
+  { q: 'What kinds of businesses do you work with?', a: 'We work with small and medium businesses that rely on nearby customers, such as clinics, salons, restaurants, shops, construction and furniture businesses, home-service businesses and web agencies.' },
+  { q: 'Should I hire you if I only need help with my Google Business Profile?', a: 'Yes. Google Business Profile optimization is one of our six services, so you can ask us about it on its own and add website or content work later if you need it.' },
+];
+
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
 ---
-<BaseLayout title={title} description={description} path="/about-us/">
-  {/* TODO(proof): add one real, permitted result for this page. Nothing is shown until then. */}
+<BaseLayout title={title} description={description} path="/about-us/" schema={schema}>
+  {/* TODO(proof): add how long Huzaifa Local SEO has been operating and how many clients it has served, once the real numbers are confirmed. */}
   <PageHero
     crumbs={[{label:'Home', href:'/'}, {label:'About Us'}]}
     eyebrow="About Us"
-    title="A practical SEO partner for businesses across Pakistan"
-    summary="Huzaifa Local SEO is a local SEO service that helps businesses get found on Google. We work with small and medium businesses in Karachi, such as clinics, salons, restaurants and shops in DHA, Clifton, Gulshan and Johar, and with businesses in other Pakistani cities. This page shows who we are and how we work: clear monthly reports, no fake reviews and no promised rankings."
+    title="Who We Are and How We Help Karachi Businesses Grow"
+    summary="Huzaifa Local SEO is a local SEO agency based in Karachi, built to help small and medium businesses — clinics, salons, restaurants, and local shops — get found on Google by nearby customers. We focus on Google Business Profile optimization, on-page SEO, and content, specifically for businesses in DHA, Clifton, Gulshan, and Johar. This page covers our background, our approach, and why local businesses choose to work with us."
+    proof="A Karachi construction company moved into the Google Maps top 3 for “construction company in Karachi” within 4 months after we rebuilt its profile and fixed its website."
     subtitle="Huzaifa Local SEO is a local SEO and digital marketing service focused on helping businesses improve their online presence and reach the right local customers."
   />
 
@@ -30,7 +43,8 @@ const description = 'Learn how Huzaifa Local SEO approaches on-page SEO, off-pag
           </div>
 
           <div class="about-box">
-            <h2>Our Approach</h2>
+            <h2>What Is Our Approach to Local SEO?</h2>
+            <p><strong>We start by studying your business, your customers and your website, and only then decide what needs fixing.</strong></p>
             <p>We don&rsquo;t believe every business needs the exact same SEO plan. A local business may need a different strategy from an online service business. That&rsquo;s why we first look at the business, target audience, website, services, location and search intent before deciding what needs attention.</p>
             <ul class="about-check-grid">
               <li><span class="about-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Understanding the target audience</li>
@@ -50,7 +64,8 @@ const description = 'Learn how Huzaifa Local SEO approaches on-page SEO, off-pag
             <span class="about-aside-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </span>
-            <h3>Who We Help</h3>
+            <h3>Who Do We Help?</h3>
+            <p><strong>We help small and medium businesses in Karachi and other Pakistani cities that depend on nearby customers finding them on Google.</strong></p>
             <p>Huzaifa Local SEO can work with businesses that want to improve their local or online visibility, including:</p>
             <ul class="about-aside-list">
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Home improvement</li>
@@ -65,15 +80,17 @@ const description = 'Learn how Huzaifa Local SEO approaches on-page SEO, off-pag
             <span class="about-aside-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </span>
-            <h3>Our Goal</h3>
+            <h3>What Is Our Goal?</h3>
+            <p><strong>Our goal is to give you SEO and website help that is easy to understand and tied to real business needs.</strong></p>
             <p>Our goal is to provide practical SEO and digital services that are easy to understand and connected to real business needs. Whether you need help with Local SEO, your Google Business Profile, website content, website design or ongoing website maintenance, we aim to keep the process clear and focused.</p>
           </div>
           <div class="about-box about-aside-box">
             <span class="about-aside-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
             </span>
-            <h3>Why Clear SEO Matters</h3>
-            <p>SEO is not only about adding keywords to a page. A useful SEO strategy connects the business, service, location, website content and customer search intent. The goal is to make the website easier to understand and more useful for people searching for the services a business provides.</p>
+            <h3>Why Does Clear SEO Matter?</h3>
+            <p><strong>Because SEO only works when it connects your business, your location and what customers actually search for.</strong></p>
+            <p>SEO is not only about adding keywords to a page. A useful SEO strategy connects the business, service, location, website content and customer search intent. Google itself says local results depend mainly on <a href="https://support.google.com/business/answer/7091" target="_blank" rel="noopener noreferrer">relevance, distance and prominence</a>. The goal is to make the website easier to understand and more useful for people searching for the services a business provides.</p>
             <p>We also avoid making unrealistic promises such as guaranteed Google rankings. Search results can change because of many factors, and SEO should be treated as an ongoing process.</p>
           </div>
         </aside>
@@ -147,6 +164,35 @@ const description = 'Learn how Huzaifa Local SEO approaches on-page SEO, off-pag
       .about-box { padding: 26px 24px; }
     }
   </style>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Should I Hire Huzaifa Local SEO or Do It Myself?</h2>
+        <p><strong>You can set up a <a href="https://support.google.com/business" target="_blank" rel="noopener noreferrer">Google Business Profile</a> yourself for free, but hiring us saves your time and covers the website and content work too.</strong></p>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col">What you need</th><th scope="col">With Huzaifa Local SEO</th><th scope="col">Doing it yourself</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Google Business Profile</th><td>We fix your details, categories, photos and posts</td><td>You learn Google&rsquo;s rules and keep the profile updated</td></tr>
+            <tr><th scope="row">Website fixes</th><td>We fix titles, headings, text and page speed</td><td>You find and fix each problem on your own</td></tr>
+            <tr><th scope="row">Content</th><td>We write pages around what customers search for</td><td>You plan and write every page yourself</td></tr>
+            <tr><th scope="row">Reporting</th><td>Plain monthly reports on what changed</td><td>You check your own rankings and results</td></tr>
+            <tr><th scope="row">Your time</th><td>We handle the work</td><td>It takes time away from running your business</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container" style="max-width:860px;">
+      <FaqList title="Common Questions About Huzaifa Local SEO" items={faqs} />
+    </div>
+  </section>
 
   <ServiceGrid title="Explore Our Services" />
 
