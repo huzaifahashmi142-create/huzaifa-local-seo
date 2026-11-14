@@ -6,7 +6,7 @@ import { platformLogos } from '../data/platformLogos';
     {[...platformLogos, ...platformLogos].map((p, i) => (
       <span class="marquee-logo" aria-hidden={i >= platformLogos.length ? 'true' : undefined}>
         <span class="marquee-logo-icon">
-          <img src={p.slug === 'ahrefs' ? '/icons/ahrefs.png' : `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${p.slug}.svg`} alt={i < platformLogos.length ? `${p.name} logo: platform used in our Karachi local SEO and website work` : `${p.name} logo, repeated in the scrolling platform strip`} loading="lazy" />
+          <img src={p.slug === 'ahrefs' ? '/icons/ahrefs.png' : `https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${p.slug}.svg`} alt={i < platformLogos.length ? `${p.name} logo: platform used in our local SEO and website work across Pakistan` : `${p.name} logo, repeated in the scrolling platform strip`} loading="lazy" />
         </span>
         <span style={p.style === 'italic' ? 'font-style:italic;' : ''}>{p.name}</span>
       </span>
